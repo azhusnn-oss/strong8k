@@ -63,77 +63,135 @@ def build_home():
         meta=["Plans from <strong>£14.99</strong>", "Smart TV, Firestick, Android, iOS &amp; more", "WhatsApp &amp; email support"],
     ))
 
-    # Section 2: subscription plans — compact selector + detail panel
+    # 1. What Is Strong 8K IPTV?
     s.append(sec(
-        section_head("Subscription Plans", "Choose Your Strong 8K IPTV Plan",
-            "Flexible plans for different viewing needs — the longer the plan, the lower the average monthly cost.")
-        + pricing_showcase(PLANS, "iptv-subscription.html", "iptv-subscription.html#compare", INCLUDED, id_attr="home-plans")
+        section_head("1. About The Service", "What Is Strong 8K IPTV?",
+            "Strong 8K IPTV is an IPTV service designed for viewers who want live television, sports, movies "
+            "and series through an internet connection. It brings different types of entertainment together in "
+            "one IPTV service, with access across compatible TVs, streaming devices, mobile devices and IPTV "
+            "players. Whether you watch live sports, entertainment channels or on-demand content, Strong 8K "
+            "IPTV provides a flexible way to watch your favourite content online.",
+            align="center")
+        , container="container container--narrow",
     ))
 
-    features = [
-        ("tv", "Live TV Streaming", "Watch available live television channels over an internet connection."),
-        ("trophy", "Sports Coverage", "Access available sports programming, including football, boxing, basketball and other competitions."),
-        ("film", "VOD Library", "Browse available movies and series through video-on-demand content."),
-        ("guide", "Electronic Programme Guide", "View programme information where EPG data is supported."),
-        ("clock", "Catch-Up TV", "Watch previously broadcast programmes where catch-up is available."),
-        ("mobile", "Multiple Device Support", "Set up the service on compatible TVs, streaming devices, phones and IPTV boxes."),
-    ]
+    # 2. Trial & Special Offer
     s.append(sec(
-        section_head("About The Service", "What Is Strong 8K IPTV?",
-            "Strong 8K IPTV brings different types of entertainment together in one IPTV service. Whether you "
-            "watch live sports, entertainment channels or on-demand content, Strong 8K IPTV provides a flexible "
-            "way to watch your favourite content online.")
-        + feature_grid(features)
-    ))
-
-    s.append(sec(
-        section_head("Sports Coverage", "Follow The Sports You Love",
-            "Sports coverage can include popular competitions and events, alongside other sports and leagues, subject to availability.")
-        + pill_row(SPORTS),
+        f'''<div class="card text-center" style="max-width:720px;margin-inline:auto">
+      {section_head("2. Trial &amp; Special Offer", "Want To Try Strong 8K First?", None)}
+      <p style="margin-top:-8px">Want to try Strong 8K before choosing a longer package? Get started with our
+      available IPTV trial and take advantage of special offers, including plans from <strong style="color:var(--gold)">£49.99</strong> when available.</p>
+      <div class="mt-lg">{btn_row([btn("Start IPTV Trial", wa("Hi Strong 8K, I'd like to start a trial."), "gold-light", blank=True), btn("Claim Special Offer", wa("Hi Strong 8K, I'd like to claim the special offer."), "outline", blank=True)])}</div>
+    </div>''',
         alt=True,
     ))
 
-    device_cards = "".join(icon_card(i, n, s_) for i, n, s_ in DEVICES)
+    # 3. Strong 8K IPTV Subscription Plans
     s.append(sec(
-        section_head("Compatible Devices", "Watch On The Devices You Already Own",
+        section_head("3. Subscription Plans", "Strong 8K IPTV Subscription Plans",
+            "Choose a subscription based on how long you want to use the service. Strong 8K IPTV offers "
+            "flexible plans for different viewing needs.")
+        + pricing_showcase(PLANS, "iptv-subscription.html", "iptv-subscription.html#compare", INCLUDED, id_attr="home-plans")
+        + '<p class="divider-note">Choose a shorter plan if you want flexibility, or select the annual IPTV subscription for longer-term access.</p>'
+    ))
+
+    # 4. What You Get With Strong 8K IPTV
+    s.append(sec(
+        section_head("4. What You Get", "What You Get With Strong 8K IPTV", None)
+        + f'''<div style="max-width:760px;margin-inline:auto;display:flex;flex-direction:column;gap:16px">
+      <p style="text-align:center">Strong 8K IPTV brings together live TV, sports, movies and series in one service. Sports coverage can
+      include popular competitions and events such as the Premier League, UEFA competitions, boxing and PPV
+      events, alongside other sports and leagues such as MLB and NBA, subject to availability. You can also
+      access VOD content, different picture-quality options, EPG information and catch-up features where supported.</p>
+      <p style="text-align:center">The service is designed for viewers who want a broad entertainment experience without relying on a
+      single type of content.</p>
+    </div>''',
+        alt=True,
+    ))
+
+    # 5. Compatible Devices
+    home_devices = [
+        ("tv", "Smart TVs", "Watch IPTV directly on supported Smart TV platforms using a compatible IPTV player."),
+        ("firestick", "Amazon Firestick / Fire TV", "Set up Strong 8K with a compatible IPTV application."),
+        ("tv", "Android TV", "Use supported IPTV players on Android TV devices."),
+        ("mobile", "Android Phones &amp; Tablets", "Watch compatible IPTV content while travelling or away from your main TV."),
+        ("apple", "iPhone &amp; iPad", "Use a compatible IPTV player where supported."),
+        ("box", "IPTV Boxes", "Compatible Android-based IPTV boxes can provide a dedicated viewing setup."),
+        ("laptop", "IPTV Players", "Strong 8K can be configured through supported players using the available connection details."),
+    ]
+    device_cards = "".join(icon_card(i, n, s_) for i, n, s_ in home_devices)
+    s.append(sec(
+        section_head("5. Compatible Devices", "Compatible Devices",
             "Strong 8K IPTV can be used across a range of compatible devices and IPTV applications.")
         + f'<div class="grid grid--3">{device_cards}</div>',
-        alt=True,
     ))
 
+    # 6. Why Choose Strong 8K IPTV?
     why = [
         ("gauge", "Flexible Subscription Options", "Choose from monthly, 3-month, 6-month and annual plans."),
         ("layers", "Broad Entertainment Choice", "Live TV, sports, movies and series are available through one IPTV service."),
         ("trophy", "Sports-Focused Viewing", "Follow popular football competitions, boxing, PPV events and other major sports."),
         ("wifi", "Multi-Device Flexibility", "Use compatible devices at home or on mobile."),
-        ("sparkles", "Simple IPTV Setup", "Configure the service through a supported IPTV player."),
+        ("sparkles", "Simple IPTV Setup", "Configure the service through a supported IPTV player on your device."),
         ("headset", "Support When You Need It", "Get assistance through WhatsApp and email for setup and subscription questions."),
+        ("grid", "Choice Of IPTV Players", "Use a compatible application that suits your preferred device and viewing setup."),
     ]
-    s.append(sec(section_head("Why Strong 8K", "Why Choose Strong 8K IPTV?") + feature_grid(why)))
+    s.append(sec(section_head("6. Why Strong 8K", "Why Choose Strong 8K IPTV?") + feature_grid(why), alt=True))
 
+    # 7. Strong 8K IPTV Features
+    features10 = [
+        ("tv", "Live TV Streaming", "Watch available live television channels over an internet connection."),
+        ("trophy", "Sports Coverage", "Access available sports programming, including football, boxing, basketball and other competitions."),
+        ("film", "VOD Library", "Browse available movies and series through video-on-demand content."),
+        ("guide", "Electronic Programme Guide (EPG)", "View programme information where EPG data is supported."),
+        ("clock", "Catch-Up TV", "Watch previously broadcast programmes where catch-up is available."),
+        ("mobile", "Multiple Device Support", "Set up the service on compatible TVs, streaming devices, phones and IPTV boxes."),
+        ("sparkles", "HD, Full HD &amp; 4K Content", "Available picture quality depends on the source, device and content."),
+        ("laptop", "IPTV Player Compatibility", "Configure Strong 8K through supported IPTV applications."),
+        ("gauge", "Flexible Plans", "Select a subscription period that matches your viewing requirements."),
+        ("headset", "Customer Support", "Contact the support team through WhatsApp or email for assistance."),
+    ]
+    s.append(sec(section_head("7. Features", "Strong 8K IPTV Features") + feature_grid(features10, cols=4)))
+
+    # 8. Strong 8K IPTV Reviews
     s.append(sec(
-        section_head("Customer Reviews", "Strong 8K IPTV Reviews",
-            "We value feedback from customers who use Strong 8K IPTV. Genuine reviews help new users understand "
-            "the setup process, service experience and support available.")
-        + review_placeholder(),
+        section_head("8. Customer Reviews", "Strong 8K IPTV Reviews",
+            "We value feedback from customers who use Strong 8K IPTV. Genuine customer reviews can help new "
+            "users understand the setup process, service experience and support available.")
+        + review_placeholder()
+        + '<p class="divider-note">Customer reviews should be added here using verified feedback only. We do not publish invented testimonials or ratings.</p>',
         alt=True,
     ))
 
+    # 9. FAQ
     faqs = [
         ("What is Strong 8K IPTV?", "Strong 8K IPTV is an IPTV service that delivers live television, sports, movies and series over an internet connection. It can be configured on compatible Smart TVs, streaming devices, mobile devices and IPTV players."),
         ("What does a Strong 8K IPTV subscription include?", "A subscription provides access to the content and features included with your selected plan. Depending on availability, this can include live TV, sports, VOD, movies, series, EPG and catch-up content."),
         ("How much does Strong 8K IPTV cost?", "Strong 8K IPTV plans currently start at £14.99 for one month. Longer options include £24.99 for three months, £39.99 for six months and £59.99 for one year."),
         ("Can I watch Premier League and UEFA football?", "Available sports programming can include major football competitions such as the Premier League and UEFA competitions, subject to the content available through the service at the time of viewing."),
+        ("Can I watch boxing, PPV events, NBA and other sports?", "Sports availability can include boxing, PPV events, NBA, MLB and other leagues and competitions, depending on the available programming and event rights."),
         ("Which devices can I use with Strong 8K IPTV?", "You can configure Strong 8K on compatible Smart TVs, Firestick/Fire TV, Android TV devices, smartphones, tablets, IPTV boxes and supported IPTV players."),
-        ("How do I get help with my Strong 8K IPTV subscription?", "For subscription, setup or general support questions, contact the Strong 8K team through WhatsApp or email."),
+        ("How do I get help with my Strong 8K IPTV subscription?", "For subscription, setup or general support questions, contact the Strong 8K team through WhatsApp or email. The support team can help with available setup information and account-related questions."),
     ]
-    s.append(sec(section_head("FAQ", "Frequently Asked Questions") + faq_list(faqs), container="container container--narrow", id_attr="faq"))
+    s.append(sec(section_head("9. FAQ", "Frequently Asked Questions") + faq_list(faqs), container="container container--narrow", id_attr="faq"))
 
-    s.append(cta_section(
-        "Ready to Get Started With Strong 8K IPTV?",
-        "Need help choosing a subscription or setting up Strong 8K IPTV? Our support team is ready on WhatsApp and email.",
-        "View Subscription Plans", "iptv-subscription.html", "Chat on WhatsApp", wa("Hi Strong 8K, I'd like some help getting started."),
+    # 10. Get in Touch
+    s.append(sec(
+        f'''{section_head("10. Get In Touch", "Need Help Choosing Or Setting Up Strong 8K IPTV?", None)}
+    <div class="grid grid--2" style="max-width:640px;margin:0 auto 24px">
+      <a class="card icon-card" href="{wa("Hi Strong 8K, I need some help.")}" target="_blank" rel="noreferrer">
+        <div class="icon-box">{icon("whatsapp", 20)}</div><h3>WhatsApp Support</h3>
+        <p>Contact us directly on WhatsApp for quick assistance.</p>
+      </a>
+      <a class="card icon-card" href="{mail()}">
+        <div class="icon-box">{icon("mail", 20)}</div><h3>Email Support</h3>
+        <p>Send your question by email for subscription, setup or general support.</p>
+      </a>
+    </div>
+    <p class="text-center" style="max-width:640px;margin-inline:auto">Whether you are new to IPTV or already use an IPTV player, our support team can help you get started with Strong 8K.</p>''',
+        alt=True,
     ))
+
     return s
 
 
