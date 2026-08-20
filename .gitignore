@@ -1,26 +1,8 @@
-# dependencies
-/node_modules
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
+# OS / editor
 .DS_Store
-*.pem
+*.swp
 
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# local env files
-.env*.local
-.env
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# local scratch
+*.local.html
+__pycache__/
+*.pyc
