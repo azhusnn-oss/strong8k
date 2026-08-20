@@ -32,6 +32,18 @@ DEVICES = [
 SPORTS = ["Premier League", "UEFA Competitions", "Boxing", "PPV Events", "NBA", "MLB", "Football Leagues", "Basketball"]
 
 
+INCLUDED = [
+    "Reliable live TV streaming",
+    "HD, Full HD and 4K where supported",
+    "Live sports and PPV events included",
+    "Movies and series via VOD",
+    "EPG / TV guide included",
+    "Works on Smart TV, Firestick, mobile and more",
+    "Simple setup guide provided",
+    "WhatsApp and email support",
+]
+
+
 def pricing_grid(cta_href="iptv-subscription.html#plans"):
     cards = "".join(price_card(p["name"], p["price"], p["duration"], p["monthly"], p["best_for"], cta_href, p.get("featured", False)) for p in PLANS)
     return f'<div class="pricing-grid">{cards}</div>'
@@ -51,10 +63,11 @@ def build_home():
         meta=["Plans from <strong>£14.99</strong>", "Smart TV, Firestick, Android, iOS &amp; more", "WhatsApp &amp; email support"],
     ))
 
-    s.append(promo_strip(
-        '<p><strong>Trial &amp; Special Offer:</strong> Try Strong 8K before choosing a longer package — '
-        'special offer plans from <strong>£49.99</strong> when available.</p>'
-        + btn("Claim Offer", wa("Hi Strong 8K, I'd like to claim the trial offer."), "gold-light", blank=True)
+    # Section 2: subscription plans — compact selector + detail panel
+    s.append(sec(
+        section_head("Subscription Plans", "Choose Your Strong 8K IPTV Plan",
+            "Flexible plans for different viewing needs — the longer the plan, the lower the average monthly cost.")
+        + pricing_showcase(PLANS, "iptv-subscription.html", "iptv-subscription.html#compare", INCLUDED, id_attr="home-plans")
     ))
 
     features = [
@@ -78,13 +91,6 @@ def build_home():
             "Sports coverage can include popular competitions and events, alongside other sports and leagues, subject to availability.")
         + pill_row(SPORTS),
         alt=True,
-    ))
-
-    s.append(sec(
-        section_head("Subscription Plans", "Choose Your Strong 8K IPTV Plan",
-            "Flexible plans for different viewing needs — from a short-term trial to the lowest average monthly cost with an annual plan.")
-        + pricing_grid()
-        + f'<div class="text-center mt-lg">{btn("Compare All Plans", "iptv-subscription.html", "outline", "arrow-right")}</div>'
     ))
 
     device_cards = "".join(icon_card(i, n, s_) for i, n, s_ in DEVICES)
@@ -145,11 +151,8 @@ def build_subscription():
     s.append(sec(
         section_head("Pricing", "Choose Your Strong 8K IPTV Plan",
             "Every plan provides the core Strong 8K IPTV service — the main difference is the subscription period.")
-        + pricing_grid("../contact-us.html"),
-        id_attr="plans",
+        + pricing_showcase(PLANS, "contact-us.html", "#compare", INCLUDED, id_attr="plans"),
     ))
-    # fix relative href for this same-level page
-    s[-1] = s[-1].replace('href="../contact-us.html"', 'href="contact-us.html"')
 
     s.append(sec(
         section_head("Compare Plans", "Compare Strong 8K IPTV Subscription Plans",
@@ -161,6 +164,7 @@ def build_subscription():
             ["1 Year", "£59.99", "£5.00/month", "Long-term viewing, lowest average cost"],
         ], highlight_col=2),
         alt=True,
+        id_attr="compare",
     ))
 
     included = [

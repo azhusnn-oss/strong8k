@@ -286,6 +286,98 @@ def price_card(name, price, period, monthly, best_for, href, featured=False):
     </div>'''
 
 
+def savings_pct(plan, base_monthly):
+    """% saved vs. paying the 1-month rate for that many months, from real prices."""
+    months = int(plan["duration"].split()[0]) if "Month" in plan["duration"] else 12
+    price = float(plan["price"].replace("£", ""))
+    baseline = base_monthly * months
+    return round((1 - price / baseline) * 100)
+
+
+def pricing_showcase(plans, cta_href, compare_href, included, id_attr="plans"):
+    base_monthly = float(plans[0]["price"].replace("£", ""))
+    featured = next((p for p in plans if p.get("featured")), plans[0])
+
+    cards = []
+    for i, p in enumerate(plans):
+        pct = savings_pct(p, base_monthly) if p is not plans[0] else None
+        is_featured = p.get("featured", False)
+        save_badge = f'<span class="save-badge">Save {pct}%</span>' if pct else ""
+        popular = '<span class="popular-tag">Most Popular</span>' if is_featured else ""
+        cards.append(f'''<button type="button" class="plan-tile{" is-active" if is_featured else ""}"
+        data-name="{esc(p['name'])}" data-duration="{esc(p['duration'])}" data-price="{p['price']}"
+        data-monthly="{esc(p['monthly'])}" data-href="{cta_href}">
+      {popular}
+      <span class="plan-tile-name">{esc(p['name'])}</span>
+      {save_badge}
+      <span class="plan-tile-price">{p['price']}</span>
+    </button>''')
+
+    included_html = "".join(f'<li>{icon("check", 15)}{esc(item)}</li>' for item in included)
+
+    script = f'''<script>
+(function() {{
+  var root = document.getElementById("{id_attr}");
+  if (!root) return;
+  var tiles = root.querySelectorAll(".plan-tile");
+  var title = root.querySelector("[data-role=pd-title]");
+  var sub = root.querySelector("[data-role=pd-sub]");
+  var cta = root.querySelector("[data-role=pd-cta]");
+  tiles.forEach(function(t) {{
+    t.addEventListener("click", function() {{
+      tiles.forEach(function(x) {{ x.classList.remove("is-active"); }});
+      t.classList.add("is-active");
+      title.textContent = t.dataset.duration;
+      sub.textContent = t.dataset.name + " plan \\u2014 " + t.dataset.price + " (" + t.dataset.monthly + ")";
+      cta.textContent = "Get " + t.dataset.duration;
+      cta.setAttribute("href", t.dataset.href);
+    }});
+  }});
+  var end = new Date();
+  end.setMonth(end.getMonth() + 1, 0);
+  end.setHours(23, 59, 59, 0);
+  var elH = root.querySelector("[data-role=cd-h]"), elM = root.querySelector("[data-role=cd-m]"), elS = root.querySelector("[data-role=cd-s]");
+  function tick() {{
+    var diff = Math.max(0, end - new Date());
+    var h = Math.floor(diff / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    if (elH) elH.textContent = String(h).padStart(2, "0");
+    if (elM) elM.textContent = String(m).padStart(2, "0");
+    if (elS) elS.textContent = String(s).padStart(2, "0");
+  }}
+  tick();
+  setInterval(tick, 1000);
+}})();
+</script>'''
+
+    max_pct = max(savings_pct(p, base_monthly) for p in plans if p is not plans[0])
+
+    return f'''<div id="{id_attr}" class="pricing-showcase">
+  <div class="offer-bar">
+    {icon("clock", 15)} Up to <strong>{max_pct}% off</strong> longer plans &mdash; recalculated monthly, ends in
+    <span class="offer-countdown">
+      <span data-role="cd-h">00</span>:<span data-role="cd-m">00</span>:<span data-role="cd-s">00</span>
+    </span>
+  </div>
+
+  <div class="plan-tiles">{"".join(cards)}</div>
+
+  <div class="plan-detail">
+    <h3 data-role="pd-title">{featured['duration']}</h3>
+    <p class="plan-detail-sub" data-role="pd-sub">{esc(featured['name'])} plan &mdash; {featured['price']} ({featured['monthly']})</p>
+    <a class="btn btn-gold-light btn-block" data-role="pd-cta" href="{cta_href}">Get {featured['duration']}</a>
+    <p class="included-label">What&rsquo;s Included</p>
+    <ul class="included-checklist">{included_html}</ul>
+  </div>
+
+  <div class="text-center">
+    <a class="inline-link" href="{compare_href}">Compare all plans {icon("arrow-right", 14)}</a>
+  </div>
+</div>
+{script}'''
+
+
 def reseller_card(name, credits_, best_for, href, featured=False):
     cls = "reseller-card reseller-card--featured" if featured else "reseller-card"
     badge = '<span class="price-badge">Best Value</span>' if featured else ""
