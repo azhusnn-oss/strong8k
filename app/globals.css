@@ -34,11 +34,11 @@
   }
 
   .btn-primary {
-    @apply btn bg-gradient-to-r from-brand-500 to-brand-400 text-white shadow-glow hover:from-brand-400 hover:to-brand-300 active:scale-[0.98];
+    @apply btn bg-gradient-to-r from-brand-500 to-brand-400 text-ink-900 shadow-glow hover:from-brand-400 hover:to-brand-300 active:scale-[0.98];
   }
 
   .btn-gold {
-    @apply btn bg-gradient-to-r from-gold-400 to-gold-300 text-ink-900 shadow-glow-gold hover:from-gold-300 hover:to-gold-200 active:scale-[0.98];
+    @apply btn bg-gradient-to-r from-gold-500 to-gold-50 text-ink-900 shadow-glow-gold hover:from-gold-400 hover:to-gold-50 active:scale-[0.98];
   }
 
   .btn-outline {

@@ -10,36 +10,40 @@ const config: Config = {
     extend: {
       colors: {
         ink: {
-          DEFAULT: "#05070D",
-          900: "#05070D",
-          800: "#0A0E17",
-          700: "#0E1420",
-          600: "#131B2C",
-          500: "#1A2438",
+          DEFAULT: "#000000",
+          900: "#000000",
+          800: "#0A0A0A",
+          700: "#121212",
+          600: "#1A1A1A",
+          500: "#242424",
         },
+        // Gold palette derived from the brand colors #D9AF4A (primary) and
+        // #FDF1BD (light highlight). `brand` and `gold` are intentionally
+        // identical so every existing brand-*/gold-* utility resolves to
+        // the same black-and-gold theme.
         brand: {
-          50: "#E9F7FF",
-          100: "#CDEEFF",
-          200: "#9BDDFF",
-          300: "#63C8FF",
-          400: "#2FB0FF",
-          500: "#0A96F5",
-          600: "#0077D6",
-          700: "#005EA8",
-          800: "#004A85",
-          900: "#053A66",
+          50: "#FDF1BD",
+          100: "#F6E4A6",
+          200: "#EFD78F",
+          300: "#E7C978",
+          400: "#E0BC61",
+          500: "#D9AF4A",
+          600: "#BC963F",
+          700: "#A07E34",
+          800: "#836529",
+          900: "#674D1E",
         },
         gold: {
-          50: "#FFF8E8",
-          100: "#FFEDC2",
-          200: "#FFDD8A",
-          300: "#FFC94D",
-          400: "#FFB020",
-          500: "#F59B0B",
-          600: "#D97F06",
-          700: "#B3610A",
-          800: "#8F4D10",
-          900: "#743F12",
+          50: "#FDF1BD",
+          100: "#F6E4A6",
+          200: "#EFD78F",
+          300: "#E7C978",
+          400: "#E0BC61",
+          500: "#D9AF4A",
+          600: "#BC963F",
+          700: "#A07E34",
+          800: "#836529",
+          900: "#674D1E",
         },
         live: {
           400: "#FF5C72",
@@ -73,14 +77,14 @@ const config: Config = {
       },
       backgroundImage: {
         "grid-fade":
-          "linear-gradient(to bottom, rgba(5,7,13,0) 0%, rgba(5,7,13,1) 85%)",
+          "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 85%)",
         "hero-glow":
-          "radial-gradient(60% 60% at 50% 0%, rgba(10,150,245,0.25) 0%, rgba(5,7,13,0) 70%)",
+          "radial-gradient(60% 60% at 50% 0%, rgba(217,175,74,0.22) 0%, rgba(0,0,0,0) 70%)",
       },
       boxShadow: {
-        glow: "0 0 40px rgba(10,150,245,0.35)",
-        "glow-gold": "0 0 40px rgba(255,176,32,0.3)",
-        card: "0 8px 30px rgba(0,0,0,0.35)",
+        glow: "0 0 40px rgba(217,175,74,0.35)",
+        "glow-gold": "0 0 40px rgba(253,241,189,0.25)",
+        card: "0 8px 30px rgba(0,0,0,0.5)",
       },
       borderRadius: {
         xl2: "1.25rem",

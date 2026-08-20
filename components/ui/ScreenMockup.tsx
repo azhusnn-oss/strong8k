@@ -1,12 +1,12 @@
 import { Play, Signal, Wifi } from "lucide-react";
 
 const tiles = [
-  { color: "from-brand-500 to-brand-700", label: "LIVE" },
-  { color: "from-gold-400 to-gold-600", label: "SPORT" },
+  { color: "from-gold-600 to-gold-900", label: "LIVE" },
+  { color: "from-gold-400 to-gold-700", label: "SPORT" },
   { color: "from-live-500 to-live-600", label: "PPV" },
-  { color: "from-brand-400 to-ink-600", label: "VOD" },
-  { color: "from-gold-300 to-brand-600", label: "4K" },
-  { color: "from-ink-500 to-brand-700", label: "EPG" },
+  { color: "from-ink-500 to-ink-700", label: "VOD" },
+  { color: "from-gold-500 to-gold-800", label: "4K" },
+  { color: "from-ink-600 to-gold-800", label: "EPG" },
 ];
 
 export function ScreenMockup() {

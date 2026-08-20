@@ -36,8 +36,8 @@ export function GlowOrb({
   color?: "brand" | "gold" | "live";
 }) {
   const colors = {
-    brand: "rgba(10,150,245,0.35)",
-    gold: "rgba(255,176,32,0.28)",
+    brand: "rgba(217,175,74,0.32)",
+    gold: "rgba(253,241,189,0.22)",
     live: "rgba(255,59,78,0.25)",
   };
   return (
