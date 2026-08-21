@@ -202,6 +202,26 @@ def hero_split(eyebrow_text, title_html, desc, buttons, meta=None):
   </section>'''
 
 
+def trial_offer_split(stat_num, stat_unit, stat_label, stat_note, eyebrow_text, title, desc, intro, items, closing, btn_label, btn_href):
+    items_html = "".join(f'<li><span class="dash">–</span>{esc(t)}</li>' for t in items)
+    return f'''<div class="trial-split">
+      <div class="trial-split__left">
+        <span class="trial-split__label">{esc(stat_label)}</span>
+        <div class="trial-split__stat"><span class="trial-split__num">{esc(stat_num)}</span><span class="trial-split__unit">{esc(stat_unit)}</span></div>
+        <span class="trial-split__note">{stat_note}</span>
+      </div>
+      <div class="trial-split__right">
+        <span class="trial-split__eyebrow">{esc(eyebrow_text)}</span>
+        <h2>{esc(title)}</h2>
+        <p>{desc}</p>
+        <p class="trial-split__intro"><strong>{esc(intro)}</strong></p>
+        <ul class="trial-split__checklist">{items_html}</ul>
+        <p>{closing}</p>
+        <div class="mt-lg">{btn(btn_label, btn_href, "gold-light", blank=True)}</div>
+      </div>
+    </div>'''
+
+
 def hero_simple(eyebrow_text, title, desc, buttons):
     return f'''<section class="hero">
     <div class="hero-grid"></div>

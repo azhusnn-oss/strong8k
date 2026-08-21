@@ -77,12 +77,22 @@ def build_home():
 
     # 2. Trial & Special Offer
     s.append(sec(
-        f'''<div class="card text-center" style="max-width:720px;margin-inline:auto">
-      {section_head("2. Trial & Special Offer", "Want To Try Strong 8K First?", None)}
-      <p style="margin-top:-8px">Want to try Strong 8K before choosing a longer package? Get started with our
-      available IPTV trial and take advantage of special offers, including plans from <strong style="color:var(--gold)">£49.99</strong> when available.</p>
-      <div class="mt-lg">{btn_row([btn("Start IPTV Trial", wa("Hi Strong 8K, I'd like to start a trial."), "gold-light", blank=True), btn("Claim Special Offer", wa("Hi Strong 8K, I'd like to claim the special offer."), "outline", blank=True)])}</div>
-    </div>''',
+        trial_offer_split(
+            "24", "HOURS", "FULL ACCESS FOR", "£0 &middot; No card needed",
+            "FREE TRIAL", "Try Strong 8K IPTV Free for 24 Hours",
+            "Why take anyone's word for it? Test the full Strong 8K service on your own device, "
+            "your own broadband, at your own pace &mdash; completely free for 24 hours.",
+            "Your trial includes everything a paid plan does:",
+            [
+                "The complete 40,000+ channel list",
+                "Real picture quality — HD, 4K and 8K UHD",
+                "Full access to the VOD library",
+                "Genuine peak-time performance, not a demo server",
+            ],
+            "No card details. No commitment. If you like what you see &mdash; and we think you will "
+            "&mdash; upgrading to a full plan takes one message.",
+            "Start free trial", wa("Hi Strong 8K, I'd like to start my free 24-hour trial."),
+        ),
         alt=True,
     ))
 
