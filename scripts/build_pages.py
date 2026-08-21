@@ -78,7 +78,7 @@ def build_home():
     # 2. Trial & Special Offer
     s.append(sec(
         f'''<div class="card text-center" style="max-width:720px;margin-inline:auto">
-      {section_head("2. Trial &amp; Special Offer", "Want To Try Strong 8K First?", None)}
+      {section_head("2. Trial & Special Offer", "Want To Try Strong 8K First?", None)}
       <p style="margin-top:-8px">Want to try Strong 8K before choosing a longer package? Get started with our
       available IPTV trial and take advantage of special offers, including plans from <strong style="color:var(--gold)">£49.99</strong> when available.</p>
       <div class="mt-lg">{btn_row([btn("Start IPTV Trial", wa("Hi Strong 8K, I'd like to start a trial."), "gold-light", blank=True), btn("Claim Special Offer", wa("Hi Strong 8K, I'd like to claim the special offer."), "outline", blank=True)])}</div>
@@ -114,8 +114,8 @@ def build_home():
         ("tv", "Smart TVs", "Watch IPTV directly on supported Smart TV platforms using a compatible IPTV player."),
         ("firestick", "Amazon Firestick / Fire TV", "Set up Strong 8K with a compatible IPTV application."),
         ("tv", "Android TV", "Use supported IPTV players on Android TV devices."),
-        ("mobile", "Android Phones &amp; Tablets", "Watch compatible IPTV content while travelling or away from your main TV."),
-        ("apple", "iPhone &amp; iPad", "Use a compatible IPTV player where supported."),
+        ("mobile", "Android Phones & Tablets", "Watch compatible IPTV content while travelling or away from your main TV."),
+        ("apple", "iPhone & iPad", "Use a compatible IPTV player where supported."),
         ("box", "IPTV Boxes", "Compatible Android-based IPTV boxes can provide a dedicated viewing setup."),
         ("laptop", "IPTV Players", "Strong 8K can be configured through supported players using the available connection details."),
     ]
@@ -146,7 +146,7 @@ def build_home():
         ("guide", "Electronic Programme Guide (EPG)", "View programme information where EPG data is supported."),
         ("clock", "Catch-Up TV", "Watch previously broadcast programmes where catch-up is available."),
         ("mobile", "Multiple Device Support", "Set up the service on compatible TVs, streaming devices, phones and IPTV boxes."),
-        ("sparkles", "HD, Full HD &amp; 4K Content", "Available picture quality depends on the source, device and content."),
+        ("sparkles", "HD, Full HD & 4K Content", "Available picture quality depends on the source, device and content."),
         ("laptop", "IPTV Player Compatibility", "Configure Strong 8K through supported IPTV applications."),
         ("gauge", "Flexible Plans", "Select a subscription period that matches your viewing requirements."),
         ("headset", "Customer Support", "Contact the support team through WhatsApp or email for assistance."),
