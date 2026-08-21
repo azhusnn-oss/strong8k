@@ -31,6 +31,15 @@ DEVICES = [
 
 SPORTS = ["Premier League", "UEFA Competitions", "Boxing", "PPV Events", "NBA", "MLB", "Football Leagues", "Basketball"]
 
+LEAGUES_ROW_1 = [
+    "Premier League", "NBA", "UEFA Champions League", "NFL", "FA Cup", "MLB",
+    "EFL Championship", "NHL", "Six Nations Rugby", "UFC", "Carabao Cup", "PGA Tour",
+]
+LEAGUES_ROW_2 = [
+    "UEFA Europa League", "MLS", "World Snooker", "NCAA Football", "PDC Darts", "WWE",
+    "Scottish Premiership", "NASCAR", "The Ashes Cricket", "NCAA Basketball", "ATP Tour", "Boxing PPV",
+]
+
 
 INCLUDED = [
     "Reliable live TV streaming",
@@ -109,7 +118,10 @@ def build_home():
       access VOD content, different picture-quality options, EPG information and catch-up features where supported.</p>
       <p style="text-align:center">The service is designed for viewers who want a broad entertainment experience without relying on a
       single type of content.</p>
-    </div>''',
+    </div>'''
+        + marquee_rows(LEAGUES_ROW_1, LEAGUES_ROW_2,
+            note="And <strong>40,000+ more channels</strong> &mdash; sports, entertainment, news, kids, "
+                 "international &amp; VOD included in every plan."),
         alt=True,
     ))
 

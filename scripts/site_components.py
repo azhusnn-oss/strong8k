@@ -223,6 +223,22 @@ def hero_centered(badge_text, accent_words, rest_words, desc, buttons, stats):
   </section>'''
 
 
+def marquee_rows(row1_items, row2_items, note=None):
+    def chips(items):
+        return "".join(f'<span class="marquee-chip"><span class="marquee-chip-dot"></span>{esc(t)}</span>' for t in items)
+
+    def track(items):
+        # duplicated once so the 0%/-50% keyframes loop seamlessly
+        return f'<div class="marquee-track">{chips(items)}{chips(items)}</div>'
+
+    note_html = f'<p class="marquee-note">{note}</p>' if note else ""
+    return f'''<div class="marquee">
+      <div class="marquee-row marquee-row--ltr">{track(row1_items)}</div>
+      <div class="marquee-row marquee-row--rtl">{track(row2_items)}</div>
+    </div>
+    {note_html}'''
+
+
 def trial_offer_split(stat_num, stat_unit, stat_label, stat_note, eyebrow_text, title, desc, intro, items, closing, btn_label, btn_href):
     items_html = "".join(f'<li><span class="dash" aria-hidden="true"></span>{esc(t)}</li>' for t in items)
     return f'''<div class="trial-split">
