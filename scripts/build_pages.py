@@ -31,6 +31,13 @@ DEVICES = [
 
 SPORTS = ["Premier League", "UEFA Competitions", "Boxing", "PPV Events", "NBA", "MLB", "Football Leagues", "Basketball"]
 
+HERO_STATS = [
+    ("40,000+", "Live Channels"),
+    ("VOD", "Movies & Series"),
+    ("HD · 4K · 8K", "Picture Quality"),
+    ("24/7", "WhatsApp & Email Support"),
+]
+
 LEAGUES_ROW_1 = [
     "Premier League", "NBA", "UEFA Champions League", "NFL", "FA Cup", "MLB",
     "EFL Championship", "NHL", "Six Nations Rugby", "UFC", "Carabao Cup", "PGA Tour",
@@ -70,12 +77,7 @@ def build_home():
         "Compatible with all your devices, with WhatsApp and email support whenever you need it.",
         [btn("View Subscription Plans", "iptv-subscription.html", "primary", "arrow-right"),
          btn("Start IPTV Trial", wa("Hi Strong 8K, I'd like to start a trial."), "outline", blank=True)],
-        stats=[
-            ("40,000+", "Live Channels"),
-            ("VOD", "Movies & Series"),
-            ("HD · 4K · 8K", "Picture Quality"),
-            ("24/7", "WhatsApp & Email Support"),
-        ],
+        stats=HERO_STATS,
     ))
 
     # 2. Trial & Special Offer
@@ -211,12 +213,15 @@ def build_home():
 # ================================================================== SUBSCRIPTION
 def build_subscription():
     s = []
-    s.append(hero_simple(
-        "IPTV Subscription", "Strong 8K IPTV Subscription Plans",
+    s.append(hero_centered(
+        "IPTV Subscription",
+        "Strong 8K IPTV",
+        "Subscription Plans",
         "Choose a Strong 8K IPTV subscription that fits your viewing needs. Get access to live TV, sports, "
-        "movies, series and VOD through compatible devices and IPTV players — with flexible durations from "
+        "movies, series and VOD through compatible devices and IPTV players &mdash; with flexible durations from "
         "one month to one year.",
         [btn("View Plans", "#plans", "primary"), btn("Start IPTV Trial", wa("Hi Strong 8K, I'd like to start a trial."), "outline", blank=True)],
+        stats=HERO_STATS,
     ))
 
     s.append(sec(
@@ -314,12 +319,15 @@ def build_subscription():
 # ================================================================== APP / PLAYER
 def build_app_player():
     s = []
-    s.append(hero_simple(
-        "Strong 8K App & IPTV Player", "Strong 8K App &amp; IPTV Player",
+    s.append(hero_centered(
+        "Strong 8K App & IPTV Player",
+        "Strong 8K",
+        "App & IPTV Player",
         "Looking for the Strong 8K app or a compatible IPTV player? Access Strong 8K on supported devices, "
-        "choose the right IPTV player and configure your subscription — with download options, login methods "
+        "choose the right IPTV player and configure your subscription &mdash; with download options, login methods "
         "and troubleshooting guidance.",
         [btn("Download Strong 8K App", "#download", "primary", "download"), btn("Installation Guide", "strong-8k-iptv-installation.html", "outline")],
+        stats=HERO_STATS,
     ))
 
     s.append(sec(
@@ -402,12 +410,15 @@ def build_app_player():
 # ================================================================== INSTALLATION
 def build_installation():
     s = []
-    s.append(hero_simple(
-        "Setup & Installation", "Strong 8K IPTV Setup &amp; Installation Guide",
+    s.append(hero_centered(
+        "Setup & Installation",
+        "Strong 8K IPTV",
+        "Setup & Installation Guide",
         "Setting up Strong 8K IPTV is straightforward when you use the correct application and installation "
         "method for your device. This guide covers Firestick, Android TV, Smart TV, mobile devices, IPTV "
         "boxes and Windows, along with M3U and Xtream Codes setup.",
         [btn("Get Setup Help", wa("Hi Strong 8K, I need help with installation."), "primary", blank=True)],
+        stats=HERO_STATS,
     ))
 
     checklist = ["An active Strong 8K IPTV subscription", "A compatible streaming device", "A stable internet connection",
@@ -491,11 +502,14 @@ def build_installation():
 # ================================================================== RESELLER
 def build_reseller():
     s = []
-    s.append(hero_simple(
-        "IPTV Reseller", "Strong 8K IPTV Reseller Panel",
+    s.append(hero_centered(
+        "IPTV Reseller",
+        "Strong 8K IPTV",
+        "Reseller Panel",
         "Start your own IPTV reseller business with the Strong 8K reseller panel. Manage customer "
         "subscriptions, use reseller credits and organise activations from one place.",
         [btn("Get Reseller Panel", wa("Hi Strong 8K, I'd like to get the reseller panel."), "gold-light", blank=True)],
+        stats=HERO_STATS,
     ))
 
     s.append(sec(
@@ -574,12 +588,15 @@ def build_reseller():
 # ================================================================== CONTACT
 def build_contact():
     s = []
-    s.append(hero_simple(
-        "Contact Us", "Contact Strong 8K",
+    s.append(hero_centered(
+        "Contact Us",
+        "Strong 8K IPTV",
+        "Support & Contact",
         "Need help with your Strong 8K IPTV subscription, app, installation or reseller account? Our support "
         "team is here to help via WhatsApp or email.",
         [btn("WhatsApp Support", wa("Hi Strong 8K, I need some help."), "primary", "whatsapp", blank=True),
          btn("Email Support", mail(), "outline", "mail")],
+        stats=HERO_STATS,
     ))
 
     help_cats = [
