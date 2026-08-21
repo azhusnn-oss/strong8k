@@ -202,6 +202,27 @@ def hero_split(eyebrow_text, title_html, desc, buttons, meta=None):
   </section>'''
 
 
+def hero_centered(badge_text, accent_words, rest_words, desc, buttons, stats):
+    stat_items = [f'<div class="hero-stat"><span class="hero-stat-num">{esc(v)}</span><span class="hero-stat-label">{esc(l)}</span></div>' for v, l in stats]
+    sep = '<span class="hero-stat-sep" aria-hidden="true"></span>'
+    stats_html = f'<div class="hero-stats">{sep.join(stat_items)}</div>' if stat_items else ""
+    pill_buttons = [b.replace('class="btn ', 'class="btn btn--pill ', 1) for b in buttons]
+    return f'''<section class="hero hero-centered">
+    <div class="hero-centered-bg" aria-hidden="true"></div>
+    <div class="hero-centered-overlay" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-centered-inner">
+        <span class="hero-badge"><span class="hero-badge-dot"></span>{esc(badge_text)}</span>
+        <h1><span class="accent">{esc(accent_words)}</span> {esc(rest_words)}</h1>
+        <span class="hero-underline" aria-hidden="true"></span>
+        <p>{desc}</p>
+        {btn_row(pill_buttons, center=True)}
+        {stats_html}
+      </div>
+    </div>
+  </section>'''
+
+
 def trial_offer_split(stat_num, stat_unit, stat_label, stat_note, eyebrow_text, title, desc, intro, items, closing, btn_label, btn_href):
     items_html = "".join(f'<li><span class="dash" aria-hidden="true"></span>{esc(t)}</li>' for t in items)
     return f'''<div class="trial-split">

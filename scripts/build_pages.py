@@ -52,15 +52,21 @@ def pricing_grid(cta_href="iptv-subscription.html#plans"):
 # ================================================================== HOME
 def build_home():
     s = []
-    s.append(hero_split(
-        "Live TV · Sports · Movies · Series",
-        'One IPTV Subscription.<br>Every Screen. <span class="accent">Strong 8K IPTV.</span>',
-        "Strong 8K IPTV is an IPTV service designed for viewers who want live television, sports, "
-        "movies and series through an internet connection — across compatible TVs, streaming devices, "
-        "mobile devices and IPTV players.",
+    s.append(hero_centered(
+        "Welcome To Strong 8K IPTV",
+        "Strong 8K IPTV",
+        "Delivers The Best IPTV Subscription In The UK",
+        "Strong 8K IPTV delivers a premium streaming experience &mdash; access thousands of live channels in HD, "
+        "4K and 8K UHD, a full VOD library of movies and series, and live sports from around the world. "
+        "Compatible with all your devices, with WhatsApp and email support whenever you need it.",
         [btn("View Subscription Plans", "iptv-subscription.html", "primary", "arrow-right"),
          btn("Start IPTV Trial", wa("Hi Strong 8K, I'd like to start a trial."), "outline", blank=True)],
-        meta=["Plans from <strong>£14.99</strong>", "Smart TV, Firestick, Android, iOS &amp; more", "WhatsApp &amp; email support"],
+        stats=[
+            ("40,000+", "Live Channels"),
+            ("VOD", "Movies & Series"),
+            ("HD · 4K · 8K", "Picture Quality"),
+            ("24/7", "WhatsApp & Email Support"),
+        ],
     ))
 
     # 2. Trial & Special Offer
