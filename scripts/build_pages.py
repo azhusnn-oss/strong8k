@@ -110,14 +110,11 @@ def build_home():
 
     # 4. What You Get With Strong 8K IPTV
     s.append(sec(
-        section_head("3. What You Get", "What You Get With Strong 8K IPTV", None)
+        section_head("What You Get", "What You Get With Strong 8K IPTV", None)
         + f'''<div style="max-width:760px;margin-inline:auto;display:flex;flex-direction:column;gap:16px">
-      <p style="text-align:center">Strong 8K IPTV brings together live TV, sports, movies and series in one service. Sports coverage can
-      include popular competitions and events such as the Premier League, UEFA competitions, boxing and PPV
-      events, alongside other sports and leagues such as MLB and NBA, subject to availability. You can also
-      access VOD content, different picture-quality options, EPG information and catch-up features where supported.</p>
-      <p style="text-align:center">The service is designed for viewers who want a broad entertainment experience without relying on a
-      single type of content.</p>
+      <p style="text-align:center">Strong 8K IPTV brings live TV, sports, movies, series and VOD together in one service &mdash;
+      including the Premier League, UEFA competitions, boxing, PPV, MLB and NBA, subject to availability, plus
+      flexible picture quality, EPG and catch-up support.</p>
     </div>'''
         + marquee_rows(LEAGUES_ROW_1, LEAGUES_ROW_2,
             note="And <strong>40,000+ more channels</strong> &mdash; sports, entertainment, news, kids, "
