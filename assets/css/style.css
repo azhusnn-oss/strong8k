@@ -1190,8 +1190,10 @@ table {
   }
   .trial-split__right {
     padding-left: 0;
+    text-align: center;
   }
   .trial-split__eyebrow {
+    justify-content: center;
     font-size: 11px;
     margin-bottom: 10px;
   }
@@ -1211,10 +1213,13 @@ table {
   }
   .trial-split__checklist {
     grid-template-columns: 1fr;
+    justify-items: center;
     gap: 8px;
     margin-bottom: 12px;
   }
   .trial-split__checklist li {
+    justify-self: center;
+    text-align: left;
     font-size: 13px;
   }
   .trial-split .mt-lg {
