@@ -91,7 +91,7 @@ def build_home():
             ],
             "No card details. No commitment. If you like what you see &mdash; and we think you will "
             "&mdash; upgrading to a full plan takes one message.",
-            "Start free trial", wa("Hi Strong 8K, I'd like to start my free 24-hour trial."),
+            "Start free trial →", wa("Hi Strong 8K, I'd like to start my free 24-hour trial."),
         ),
         alt=True,
     ))
