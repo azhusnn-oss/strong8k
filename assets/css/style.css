@@ -1105,11 +1105,12 @@ table {
 @media (max-width: 780px) {
   .trial-split {
     grid-template-columns: 1fr;
-    padding: 32px 22px;
+    border-radius: 18px;
+    padding: 24px 18px;
   }
   .trial-split__left {
-    padding: 0 0 28px;
-    margin-bottom: 28px;
+    padding: 0 0 18px;
+    margin-bottom: 18px;
   }
   .trial-split__left::after {
     top: auto;
@@ -1120,16 +1121,59 @@ table {
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--gold-35), transparent);
   }
+  .trial-split__label {
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+  .trial-split__ring {
+    width: 106px;
+    height: 106px;
+  }
+  .trial-split__num {
+    font-size: 32px;
+  }
+  .trial-split__unit {
+    font-size: 11px;
+  }
+  .trial-split__note {
+    margin-top: 10px;
+    font-size: 12px;
+  }
   .trial-split__right {
     padding-left: 0;
   }
-  .trial-split__right h2,
+  .trial-split__eyebrow {
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+  .trial-split__right h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
   .trial-split__right p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 12px;
     text-align: center;
     max-width: none;
   }
+  .trial-split__intro {
+    margin-bottom: 6px !important;
+  }
   .trial-split__checklist {
     grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .trial-split__checklist li {
+    font-size: 13px;
+  }
+  .trial-split .mt-lg {
+    margin-top: 20px;
+  }
+  .trial-split .btn {
+    padding: 12px 22px;
+    font-size: 14px;
   }
 }
 
