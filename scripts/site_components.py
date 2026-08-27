@@ -455,17 +455,6 @@ def contact_channel_card(icon_name, title, desc, href, blank=False):
     </a>'''
 
 
-def cta_section(title, desc, primary_label, primary_href, secondary_label, secondary_href, secondary_blank=True):
-    return f'''<section class="cta-section">
-    <div class="container container--tight">
-      <div class="cta-box">
-        <h2>{esc(title)}</h2>
-        <p>{desc}</p>
-        {btn_row([btn(primary_label, primary_href, "gold-light"), btn(secondary_label, secondary_href, "outline", blank=secondary_blank)])}
-      </div>
-    </div>
-  </section>'''
-
 
 def code_box(code):
     return f'''<div class="card code-box">

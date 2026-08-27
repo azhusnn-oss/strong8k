@@ -103,6 +103,18 @@ INCLUDED = [
 
 
 
+
+def get_in_touch(title, desc):
+    return sec(
+        section_head("Get In Touch", title, desc)
+        + f'''<div class="grid grid--2 contact-channel-grid">
+      {contact_channel_card("whatsapp", "WhatsApp Support", "Contact us directly on WhatsApp for quick assistance.", wa("Hi Strong 8K, I need some help."), blank=True)}
+      {contact_channel_card("mail", "Email Support", "Send your question by email for subscription, setup or general support.", mail())}
+    </div>''',
+        alt=True,
+    )
+
+
 # ================================================================== HOME
 def build_home():
     s = []
@@ -366,11 +378,8 @@ def build_subscription():
     ]
     s.append(sec(section_head("FAQ", "Frequently Asked Questions") + faq_list(faqs), alt=True, container="container container--narrow", id_attr="faq"))
 
-    s.append(cta_section(
-        "Ready to Choose Your Strong 8K IPTV Subscription?",
-        "Get access to available live TV, sports, movies, series and VOD through compatible devices and IPTV players.",
-        "Contact Us", "contact-us.html", "Chat on WhatsApp", wa("Hi Strong 8K, I'd like to subscribe."),
-    ))
+    s.append(get_in_touch("Ready to Choose Your Strong 8K IPTV Subscription?",
+        "Get access to available live TV, sports, movies, series and VOD through compatible devices and IPTV players &mdash; our team can help you pick the right plan."))
     return s
 
 
@@ -460,11 +469,8 @@ def build_app_player():
     ]
     s.append(sec(section_head("FAQ", "Strong 8K App FAQs") + faq_list(faqs), container="container container--narrow", id_attr="faq"))
 
-    s.append(cta_section(
-        "Need Help Installing 8K Pro?",
-        "Having trouble with the Downloader code, app installation or IPTV player setup? Our support team can help.",
-        "View Installation Guide", "strong-8k-iptv-installation.html", "Chat on WhatsApp", wa("Hi Strong 8K, I need help installing 8K Pro."),
-    ))
+    s.append(get_in_touch("Need Help Installing 8K Pro?",
+        "Having trouble with the Downloader code, app installation or IPTV player setup? Our support team can help."))
     return s
 
 
@@ -557,11 +563,8 @@ def build_installation():
     ]
     s.append(sec(section_head("FAQ", "Strong 8K IPTV Installation FAQs") + faq_list(faqs), alt=True, container="container container--narrow", id_attr="faq"))
 
-    s.append(cta_section(
-        "Need Help Setting Up Strong 8K?",
-        "If you're having trouble installing the app, entering your Downloader code, configuring Xtream Codes or loading an M3U playlist, our support team can help.",
-        "View App & Player Guide", "strong-8k-app.html", "Chat on WhatsApp", wa("Hi Strong 8K, I need setup help."),
-    ))
+    s.append(get_in_touch("Need Help Setting Up Strong 8K?",
+        "If you're having trouble installing the app, entering your Downloader code, configuring Xtream Codes or loading an M3U playlist, our support team can help."))
     return s
 
 
@@ -647,11 +650,8 @@ def build_reseller():
     ]
     s.append(sec(section_head("FAQ", "Frequently Asked Questions") + faq_list(faqs), container="container container--narrow", id_attr="faq"))
 
-    s.append(cta_section(
-        "Ready to Start Your IPTV Reseller Business?",
-        "Choose the reseller package that matches your expected customer volume and start managing IPTV subscriptions through the Strong 8K reseller panel.",
-        "Contact Reseller Support", "contact-us.html", "Chat on WhatsApp", wa("Hi Strong 8K, I'd like reseller info."),
-    ))
+    s.append(get_in_touch("Ready to Start Your IPTV Reseller Business?",
+        "Choose the reseller package that matches your expected customer volume &mdash; our team can walk you through the panel and credits."))
     return s
 
 
@@ -950,6 +950,8 @@ def build_legal():
     </div>"""
 
     s.append(sec(toc + dmca + privacy + terms + refunds, container="container container--narrow"))
+    s.append(get_in_touch("Questions About These Policies?",
+        "If anything here is unclear &mdash; a refund request, a privacy question or a DMCA notice &mdash; contact us and we'll help."))
     return s
 
 
