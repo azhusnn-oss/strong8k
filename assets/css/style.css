@@ -1933,28 +1933,45 @@ table.data-table {
   color: var(--text);
 }
 
-/* ---- Reviews placeholder ---- */
+/* ---- Reviews ---- */
+.review-grid {
+  align-items: start;
+}
+
 .review-card {
+  border-radius: var(--radius-lg);
+}
+
+.review-quote {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.review-author {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+}
+
+.review-author strong {
+  color: var(--white);
+}
+
+.review-card--placeholder {
   max-width: 560px;
   margin-inline: auto;
   text-align: center;
   border: 1px dashed #333;
 }
 
-.stars {
-  color: var(--gold);
-  display: flex;
-  justify-content: center;
-  gap: 4px;
-  margin-bottom: 14px;
+.review-card--placeholder .review-quote {
+  color: var(--white);
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
-.stars svg {
-  width: 20px;
-  height: 20px;
-}
-
-.review-card p {
+.review-card--placeholder .review-note {
   font-size: 0.92rem;
   color: var(--text-dim);
   margin-bottom: 18px;

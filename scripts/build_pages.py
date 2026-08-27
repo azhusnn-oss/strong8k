@@ -175,11 +175,10 @@ def build_home():
 
     # 8. Strong 8K IPTV Reviews
     s.append(sec(
-        section_head("7. Customer Reviews", "Strong 8K IPTV Reviews",
-            "We value feedback from customers who use Strong 8K IPTV. Genuine customer reviews can help new "
-            "users understand the setup process, service experience and support available.")
-        + review_placeholder()
-        + '<p class="divider-note">Customer reviews should be added here using verified feedback only. We do not publish invented testimonials or ratings.</p>',
+        section_head("7. Customer Reviews", "What Our Subscribers Say",
+            "Genuine feedback from customers who contact us on WhatsApp and email &mdash; added here once verified.",
+            align="left")
+        + review_placeholder(),
         alt=True,
     ))
 

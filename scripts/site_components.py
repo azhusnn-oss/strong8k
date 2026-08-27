@@ -530,11 +530,22 @@ def code_box(code):
     </div>'''
 
 
-def review_placeholder():
-    stars = icon("star", 20) * 5
+def review_card(quote, name, location):
     return f'''<div class="card review-card">
-      <div class="stars">{stars}</div>
-      <p>Verified customer reviews are coming soon. Have you used Strong 8K IPTV? Share your experience with our support team and we may feature it here.</p>
+      <p class="review-quote">&ldquo;{esc(quote)}&rdquo;</p>
+      <p class="review-author"><strong>{esc(name)}</strong>, {esc(location)}</p>
+    </div>'''
+
+
+def review_grid(reviews):
+    cards = "".join(review_card(q, n, l) for q, n, l in reviews)
+    return f'<div class="grid grid--3 review-grid">{cards}</div>'
+
+
+def review_placeholder():
+    return f'''<div class="card review-card review-card--placeholder">
+      <p class="review-quote">Verified customer reviews are coming soon.</p>
+      <p class="review-note">Have you used Strong 8K IPTV? Share your experience with our support team and we may feature it here.</p>
       {btn("Share Your Feedback", wa("Hi Strong 8K, I would like to share a review."), "outline", blank=True)}
     </div>'''
 
