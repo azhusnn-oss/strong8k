@@ -208,18 +208,13 @@ def build_home():
 
     # 10. Get in Touch
     s.append(sec(
-        f'''{section_head("9. Get In Touch", "Need Help Choosing Or Setting Up Strong 8K IPTV?", None)}
-    <div class="grid grid--2" style="max-width:640px;margin:0 auto 24px">
-      <a class="card icon-card" href="{wa("Hi Strong 8K, I need some help.")}" target="_blank" rel="noreferrer">
-        <div class="icon-box">{icon("whatsapp", 20)}</div><h3>WhatsApp Support</h3>
-        <p>Contact us directly on WhatsApp for quick assistance.</p>
-      </a>
-      <a class="card icon-card" href="{mail()}">
-        <div class="icon-box">{icon("mail", 20)}</div><h3>Email Support</h3>
-        <p>Send your question by email for subscription, setup or general support.</p>
-      </a>
-    </div>
-    <p class="text-center" style="max-width:640px;margin-inline:auto">Whether you are new to IPTV or already use an IPTV player, our support team can help you get started with Strong 8K.</p>''',
+        section_head("9. Get In Touch", "Need Help Choosing Or Setting Up Strong 8K IPTV?",
+            "Whether you are new to IPTV or already use an IPTV player, our support team can help you get started with Strong 8K.",
+            align="left")
+        + f'''<div class="grid grid--2 contact-channel-grid">
+      {contact_channel_card("whatsapp", "WhatsApp Support", "Contact us directly on WhatsApp for quick assistance.", wa("Hi Strong 8K, I need some help."), blank=True)}
+      {contact_channel_card("mail", "Email Support", "Send your question by email for subscription, setup or general support.", mail())}
+    </div>''',
         alt=True,
     ))
 

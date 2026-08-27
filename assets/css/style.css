@@ -2039,6 +2039,81 @@ table.data-table {
   margin-bottom: 18px;
 }
 
+/* ---- Contact channel cards (Get In Touch) ---- */
+.contact-channel-grid {
+  max-width: 640px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.contact-channel-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.contact-channel-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.contact-channel-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold-20);
+  background: var(--bg-2);
+}
+
+.contact-channel-card:hover::before {
+  opacity: 1;
+}
+
+.contact-channel-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  margin-bottom: 16px;
+}
+
+.contact-channel-card h3 {
+  margin-bottom: 6px;
+}
+
+.contact-channel-card p {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  margin-bottom: 0;
+}
+
+.contact-channel-arrow {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  color: var(--text-dim);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.contact-channel-card:hover .contact-channel-arrow {
+  color: var(--gold);
+  transform: translate(2px, -2px);
+}
+
+@media (max-width: 620px) {
+  .contact-channel-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---- Contact form ---- */
 .contact-grid {
   display: grid;

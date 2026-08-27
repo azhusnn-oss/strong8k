@@ -509,6 +509,16 @@ def num_list(items):
     return f'<ul class="num-list">{lis}</ul>'
 
 
+def contact_channel_card(icon_name, title, desc, href, blank=False):
+    target = ' target="_blank" rel="noreferrer"' if blank else ""
+    return f'''<a class="card contact-channel-card" href="{href}"{target}>
+      <div class="contact-channel-icon">{icon(icon_name, 22)}</div>
+      <h3>{esc(title)}</h3>
+      <p>{desc}</p>
+      <span class="contact-channel-arrow">{icon("arrow-right", 16)}</span>
+    </a>'''
+
+
 def cta_section(title, desc, primary_label, primary_href, secondary_label, secondary_href, secondary_blank=True):
     return f'''<section class="cta-section">
     <div class="container container--tight">
