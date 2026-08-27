@@ -60,10 +60,6 @@ INCLUDED = [
 ]
 
 
-def pricing_grid(cta_href="iptv-subscription.html#plans"):
-    cards = "".join(price_card(p["name"], p["price"], p["duration"], p["monthly"], p["best_for"], cta_href, p.get("featured", False)) for p in PLANS)
-    return f'<div class="pricing-grid">{cards}</div>'
-
 
 # ================================================================== HOME
 def build_home():
@@ -693,6 +689,172 @@ def build_contact():
     return s
 
 
+
+
+# ================================================================== LEGAL
+def build_legal():
+    s = []
+    s.append(hero_centered(
+        "Legal",
+        "Strong 8K IPTV",
+        "Legal Information",
+        "Everything in one place: our DMCA policy, privacy policy, terms &amp; conditions and refund policy. "
+        "Please read these documents carefully &mdash; by using Strong 8K IPTV you agree to them.",
+        [btn("Contact Us", "contact-us.html", "primary"),
+         btn("WhatsApp Support", wa("Hi Strong 8K, I have a question about your policies."), "outline", blank=True)],
+        stats=HERO_STATS,
+    ))
+
+    toc = """<div class="legal-toc">
+      <a href="#dmca">DMCA</a>
+      <a href="#privacy-policy">Privacy Policy</a>
+      <a href="#terms-and-conditions">Terms &amp; Conditions</a>
+      <a href="#refund-policy">Refund Policy</a>
+    </div>"""
+
+    dmca = f"""<div class="legal-section" id="dmca">
+      <h2>DMCA Policy</h2>
+      <p class="legal-updated">Last updated: 27 August 2026</p>
+      <p>Strong 8K IPTV ("we", "us") respects the intellectual property rights of others and expects users of
+      the website at https://{DOMAIN}/ (the "Site") to do the same. We respond to notices of alleged copyright
+      infringement that comply with the Digital Millennium Copyright Act (DMCA) and other applicable
+      intellectual property laws.</p>
+      <h3>Filing a DMCA notice</h3>
+      <p>If you believe that content available on or through the Site infringes your copyright, please send a
+      written notification to our designated contact at <a href="{mail("DMCA Notice")}">{SUPPORT_EMAIL}</a>
+      containing the following information:</p>
+      <ul>
+        <li>A physical or electronic signature of the copyright owner or a person authorised to act on their behalf.</li>
+        <li>Identification of the copyrighted work claimed to have been infringed.</li>
+        <li>Identification of the material that is claimed to be infringing, with enough detail (such as the URL) for us to locate it.</li>
+        <li>Your contact information, including your name, address, telephone number and email address.</li>
+        <li>A statement that you have a good-faith belief that the disputed use is not authorised by the copyright owner, its agent or the law.</li>
+        <li>A statement, made under penalty of perjury, that the information in your notice is accurate and that you are the copyright owner or authorised to act on the owner's behalf.</li>
+      </ul>
+      <h3>Our response</h3>
+      <p>Upon receipt of a valid DMCA notice, we will review it promptly, remove or disable access to the
+      material identified where appropriate, and take reasonable steps to notify the affected party. Repeat
+      infringers may have their access to the service terminated.</p>
+      <h3>Counter-notification</h3>
+      <p>If you believe material you provided was removed by mistake or misidentification, you may submit a
+      counter-notification to the same contact address containing your identification of the removed material,
+      a statement under penalty of perjury of your good-faith belief that the removal was a mistake, your
+      contact details and your consent to the jurisdiction of the applicable courts.</p>
+    </div>"""
+
+    privacy = f"""<div class="legal-section" id="privacy-policy">
+      <h2>Privacy Policy</h2>
+      <p class="legal-updated">Last updated: 27 August 2026</p>
+      <p>This Privacy Policy explains what information we collect when you use the Site and our IPTV service,
+      how we use it, and the choices you have. We keep data collection to the minimum needed to run the service.</p>
+      <h3>Information we collect</h3>
+      <ul>
+        <li><strong>Contact details you give us</strong> &mdash; such as your name, email address or WhatsApp number when you contact support, request a trial or purchase a subscription.</li>
+        <li><strong>Account and subscription information</strong> &mdash; the plan you purchased, its duration, and the login credentials issued to you.</li>
+        <li><strong>Basic technical data</strong> &mdash; standard web server logs (IP address, browser type, pages visited) used for security and to keep the Site working properly.</li>
+      </ul>
+      <h3>How we use your information</h3>
+      <ul>
+        <li>To create and manage your subscription and deliver the service you purchased.</li>
+        <li>To respond to support requests over WhatsApp or email.</li>
+        <li>To protect the Site and service against fraud and abuse.</li>
+        <li>To comply with legal obligations where applicable.</li>
+      </ul>
+      <h3>What we do not do</h3>
+      <ul>
+        <li>We do not sell your personal information to third parties.</li>
+        <li>We do not send marketing messages unless you have asked to receive them.</li>
+        <li>We do not collect more personal information than the service requires.</li>
+      </ul>
+      <h3>Cookies</h3>
+      <p>The Site may use essential cookies and caching technologies required for performance and security.
+      You can control cookies through your browser settings; disabling them may affect how the Site works.</p>
+      <h3>Data retention and security</h3>
+      <p>We keep personal information only for as long as it is needed for the purposes described above, and we
+      use reasonable technical and organisational measures to protect it. No method of transmission or storage
+      is completely secure, so we cannot guarantee absolute security.</p>
+      <h3>Your rights</h3>
+      <p>Depending on where you live, you may have rights to access, correct or delete the personal information
+      we hold about you. To exercise these rights, contact us at
+      <a href="{mail("Privacy Request")}">{SUPPORT_EMAIL}</a> and we will respond within a reasonable time.</p>
+    </div>"""
+
+    terms = f"""<div class="legal-section" id="terms-and-conditions">
+      <h2>Terms &amp; Conditions</h2>
+      <p class="legal-updated">Last updated: 27 August 2026</p>
+      <p>These Terms &amp; Conditions ("Terms") govern your use of the Site and any Strong 8K IPTV subscription,
+      trial or reseller service (together, the "Service"). By accessing the Site or using the Service, you agree
+      to these Terms. If you do not agree, please do not use the Service.</p>
+      <h3>1. The Service</h3>
+      <p>Strong 8K IPTV provides access to IPTV content delivered over an internet connection for use on
+      compatible devices and IPTV player applications. Content line-ups, channels, sports coverage, EPG data,
+      catch-up availability and picture quality can vary over time and are subject to availability, your device
+      and your internet connection.</p>
+      <h3>2. Accounts and acceptable use</h3>
+      <ul>
+        <li>You are responsible for keeping your login credentials confidential.</li>
+        <li>Unless your plan states otherwise, a subscription is for your personal, non-commercial use.</li>
+        <li>You must not share, resell or redistribute your credentials or the Service without a reseller agreement.</li>
+        <li>You must not use the Service for any unlawful purpose or attempt to disrupt, reverse-engineer or overload the Service.</li>
+      </ul>
+      <h3>3. Payments and renewals</h3>
+      <p>Prices for each plan are shown on the Site at the time of purchase. Subscriptions run for the fixed
+      period purchased and do not renew automatically; we may contact you before expiry so you can renew if
+      you wish.</p>
+      <h3>4. Trials</h3>
+      <p>Free trials are provided so you can test the Service on your own device and connection before buying.
+      Trials are limited to one per customer unless we agree otherwise, and may be withdrawn in cases of abuse.</p>
+      <h3>5. Resellers</h3>
+      <p>Reseller panels and credits are subject to the package terms presented at the time of purchase.
+      Resellers are responsible for their own customers and for complying with the laws that apply to them.</p>
+      <h3>6. Availability and changes</h3>
+      <p>We aim for reliable, uninterrupted service but cannot guarantee that the Service will always be
+      available or error-free. We may modify, suspend or discontinue parts of the Service, and may update these
+      Terms from time to time. Continued use of the Service after changes take effect constitutes acceptance of
+      the updated Terms.</p>
+      <h3>7. Disclaimer and limitation of liability</h3>
+      <p>The Service is provided "as is" and "as available". To the fullest extent permitted by law, we exclude
+      all implied warranties and will not be liable for indirect or consequential losses. Our total liability
+      for any claim connected to the Service is limited to the amount you paid for the subscription period in
+      which the claim arose. Nothing in these Terms limits liability that cannot be limited by law.</p>
+      <h3>8. Your responsibilities</h3>
+      <p>You are responsible for ensuring that your use of the Service complies with the laws and regulations
+      that apply in your country of residence.</p>
+      <h3>9. Contact</h3>
+      <p>Questions about these Terms can be sent to <a href="{mail("Terms Question")}">{SUPPORT_EMAIL}</a> or
+      raised with our team on WhatsApp.</p>
+    </div>"""
+
+    refunds = f"""<div class="legal-section" id="refund-policy">
+      <h2>Refund Policy</h2>
+      <p class="legal-updated">Last updated: 27 August 2026</p>
+      <p>We want you to be confident before you pay &mdash; that is why we offer a free 24-hour trial that
+      includes everything a paid plan does. Please use the trial to confirm the Service works on your device
+      and connection before purchasing.</p>
+      <h3>When a refund is available</h3>
+      <ul>
+        <li>You purchased a subscription within the last <strong>7 days</strong>; and</li>
+        <li>the Service does not work on your compatible device or connection; and</li>
+        <li>our support team has been given a reasonable opportunity to resolve the issue with you and could not.</li>
+      </ul>
+      <h3>When a refund is not available</h3>
+      <ul>
+        <li>Change of mind after the 7-day window, or partially used subscription periods.</li>
+        <li>Issues caused by your internet connection, VPN, device fault or unsupported hardware.</li>
+        <li>Reseller credits that have already been used to create or extend customer subscriptions.</li>
+        <li>Suspensions or terminations resulting from a breach of our Terms &amp; Conditions.</li>
+      </ul>
+      <h3>How to request a refund</h3>
+      <p>Contact us on <a href="{wa("Hi Strong 8K, I would like to request a refund.")}" target="_blank" rel="noreferrer">WhatsApp</a>
+      or email <a href="{mail("Refund Request")}">{SUPPORT_EMAIL}</a> with your order details, the device you
+      are using and a description of the problem. Approved refunds are returned to the original payment method
+      where possible; processing times depend on the payment provider.</p>
+    </div>"""
+
+    s.append(sec(toc + dmca + privacy + terms + refunds, container="container container--narrow"))
+    return s
+
+
 PAGES = [
     ("index.html", "Strong 8K IPTV – IPTV Subscription & Live TV at Just £49.99",
      "Strong 8K IPTV offers flexible IPTV subscriptions with live TV, sports, movies and series. Explore plans, compatible devices, features and support.",
@@ -712,6 +874,9 @@ PAGES = [
     ("contact-us.html", "Contact Strong 8K – IPTV Support & Assistance",
      "Contact Strong 8K for IPTV subscription, installation, technical and reseller support. Get assistance through WhatsApp, email or our contact form.",
      "contact-us.html", build_contact),
+    ("legal.html", "Legal – DMCA, Privacy Policy, Terms & Refund Policy | Strong 8K IPTV",
+     "Read the Strong 8K IPTV legal information: DMCA policy, privacy policy, terms and conditions and refund policy in one place.",
+     "legal.html", build_legal),
 ]
 
 if __name__ == "__main__":

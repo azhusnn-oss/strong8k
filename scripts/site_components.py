@@ -89,6 +89,7 @@ def header_nav(active):
 
 
 def footer():
+    year = 2026
     return f'''<footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
@@ -97,46 +98,50 @@ def footer():
             <span class="brand-mark">S8</span>
             <span class="brand-name">Strong<span> 8K</span></span>
           </a>
-          <p>Strong 8K IPTV brings live TV, sports, movies and series together in one flexible IPTV service — across the devices you already use.</p>
+          <p>Strong 8K IPTV brings live TV, sports, movies and series together in one flexible IPTV service &mdash; across the devices you already use.</p>
           <div class="footer-contact">
             <a href="{wa()}" target="_blank" rel="noreferrer">{icon("whatsapp", 16)} WhatsApp Support</a>
             <a href="{mail()}">{icon("mail", 16)} {SUPPORT_EMAIL}</a>
           </div>
         </div>
-        <div class="footer-col">
-          <h4>Product</h4>
+        <nav class="footer-col" aria-label="Explore">
+          <h4>Explore</h4>
           <ul>
+            <li><a href="index.html">Home</a></li>
             <li><a href="iptv-subscription.html">IPTV Subscription</a></li>
             <li><a href="strong-8k-app.html">Strong 8K App &amp; Player</a></li>
             <li><a href="strong-8k-iptv-installation.html">Installation Guide</a></li>
             <li><a href="strong-8k-reseller-panel.html">Reseller Panel</a></li>
           </ul>
-        </div>
-        <div class="footer-col">
+        </nav>
+        <nav class="footer-col" aria-label="Support">
           <h4>Support</h4>
           <ul>
             <li><a href="contact-us.html">Contact Us</a></li>
             <li><a href="index.html#faq">FAQs</a></li>
             <li><a href="strong-8k-iptv-installation.html">Setup &amp; Installation</a></li>
             <li><a href="strong-8k-iptv-installation.html#troubleshooting">Troubleshooting</a></li>
+            <li><a href="{wa("Hi Strong 8K, I'd like to start a trial.")}" target="_blank" rel="noreferrer">Start Free Trial</a></li>
           </ul>
-        </div>
-        <div class="footer-col">
+        </nav>
+        <nav class="footer-col" aria-label="Legal">
           <h4>Legal</h4>
           <ul>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Refund Policy</a></li>
+            <li><a href="legal.html#dmca">DMCA</a></li>
+            <li><a href="legal.html#privacy-policy">Privacy Policy</a></li>
+            <li><a href="legal.html#terms-and-conditions">Terms &amp; Conditions</a></li>
+            <li><a href="legal.html#refund-policy">Refund Policy</a></li>
           </ul>
-        </div>
+        </nav>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 {SITE_FULL}. All rights reserved.</p>
+        <p>&copy; {year} {SITE_FULL}. All rights reserved.</p>
         <p>Content, sports coverage and picture quality are subject to availability, source and device support.</p>
       </div>
     </div>
   </footer>
-  <script src="assets/js/main.js"></script>'''
+  <script src="assets/js/main.js" defer></script>'''
+
 
 
 def sec(inner_html, alt=False, tight=False, container="container", id_attr=None):
@@ -177,29 +182,6 @@ def btn(label, href, style="primary", ic=None, blank=False):
 def btn_row(buttons, center=True):
     cls = "btn-row btn-row--center" if center else "btn-row"
     return f'<div class="{cls}">{"".join(buttons)}</div>'
-
-
-def hero_split(eyebrow_text, title_html, desc, buttons, meta=None):
-    meta_html = ""
-    if meta:
-        sep = '<span class="dot-sep"></span>'
-        parts = [f"<span>{m}</span>" for m in meta]
-        meta_html = f'<div class="hero-meta">{sep.join(parts)}</div>'
-    return f'''<section class="hero">
-    <div class="hero-grid"></div>
-    <div class="container">
-      <div class="hero-split">
-        <div class="hero-copy">
-          <span class="live-badge"><span class="live-dot"></span>{esc(eyebrow_text)}</span>
-          <h1>{title_html}</h1>
-          <p>{desc}</p>
-          {btn_row(buttons, center=False)}
-          {meta_html}
-        </div>
-        {tv_mockup()}
-      </div>
-    </div>
-  </section>'''
 
 
 def hero_centered(badge_text, accent_words, rest_words, desc, buttons, stats):
@@ -259,49 +241,6 @@ def trial_offer_split(stat_num, stat_unit, stat_label, stat_note, eyebrow_text, 
     </div>'''
 
 
-def hero_simple(eyebrow_text, title, desc, buttons):
-    return f'''<section class="hero">
-    <div class="hero-grid"></div>
-    <div class="container">
-      <div class="hero-simple">
-        <div class="hero-copy">
-          {eyebrow(eyebrow_text)}
-          <h1>{title}</h1>
-          <p>{desc}</p>
-          {btn_row(buttons)}
-        </div>
-      </div>
-    </div>
-  </section>'''
-
-
-def tv_mockup():
-    tiles = [("1", "LIVE"), ("2", "SPORT"), ("3", "PPV"), ("4", "VOD"), ("5", "4K"), ("6", "EPG")]
-    tiles_html = "".join(
-        f'<div class="tv-tile tv-tile--{n}">{icon("play", 18)}<span>{label}</span></div>'
-        for n, label in tiles
-    )
-    return f'''<div class="tv-wrap">
-          <div class="tv-mockup">
-            <div class="tv-mockup-bar">
-              <span class="brand-mini">Strong 8K</span>
-              <span class="badge-8k">8K</span>
-            </div>
-            <div class="tv-grid">{tiles_html}</div>
-            <div class="tv-mockup-foot">
-              <div class="tv-progress"></div>
-              <small>Now Streaming</small>
-            </div>
-          </div>
-          <div class="tv-stand"></div>
-          <div class="tv-base"></div>
-        </div>'''
-
-
-def promo_strip(html):
-    return f'<section class="promo-strip"><div class="container">{html}</div></section>'
-
-
 def icon_card(icon_name, title, desc):
     return f'''<div class="card icon-card">
       <div class="icon-box">{icon(icon_name, 20)}</div>
@@ -325,29 +264,6 @@ def feature_grid(items, cols=3):
 def pill_row(items):
     pills = "".join(f'<span class="pill">{esc(t)}</span>' for t in items)
     return f'<div class="pill-row">{pills}</div>'
-
-
-def price_card(name, price, period, monthly, best_for, href, featured=False):
-    perks = [
-        "Live TV, sports, movies &amp; series",
-        "VOD library access",
-        "EPG &amp; catch-up where supported",
-        "Multi-device compatibility",
-        "WhatsApp &amp; email support",
-    ]
-    perks_html = "".join(f'<li>{icon("check", 15)}{p}</li>' for p in perks)
-    badge = '<span class="price-badge">Most Popular</span>' if featured else ""
-    cls = "price-card price-card--featured" if featured else "price-card"
-    button_style = "gold-light" if featured else "outline"
-    return f'''<div class="{cls}">
-      {badge}
-      <p class="plan-name">{esc(name)} IPTV Subscription</p>
-      <div class="plan-price"><span class="amount">{price}</span><span class="period">/ {period}</span></div>
-      <p class="plan-monthly">{monthly}</p>
-      <p class="plan-best">{esc(best_for)}</p>
-      <ul class="plan-perks">{perks_html}</ul>
-      {btn(f"Choose {name}", href, button_style)}
-    </div>'''
 
 
 def savings_pct(plan, base_monthly):
@@ -555,14 +471,6 @@ def review_card(quote, name, location):
 def review_grid(reviews):
     cards = "".join(review_card(q, n, l) for q, n, l in reviews)
     return f'<div class="grid grid--3 review-grid">{cards}</div>'
-
-
-def review_placeholder():
-    return f'''<div class="card review-card review-card--placeholder">
-      <p class="review-quote">Verified customer reviews are coming soon.</p>
-      <p class="review-note">Have you used Strong 8K IPTV? Share your experience with our support team and we may feature it here.</p>
-      {btn("Share Your Feedback", wa("Hi Strong 8K, I would like to share a review."), "outline", blank=True)}
-    </div>'''
 
 
 def page(title, description, canonical, active_nav, body_sections):
