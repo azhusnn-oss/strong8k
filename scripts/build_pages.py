@@ -84,9 +84,9 @@ def build_home():
     s.append(sec(
         trial_offer_split(
             "24", "HOURS", "FULL ACCESS FOR", "£0 &middot; No card needed",
-            "FREE TRIAL", "Try Strong 8K IPTV Free for 24 Hours",
-            "Why take anyone's word for it? Test the full Strong 8K service on your own device, "
-            "your own broadband, at your own pace &mdash; completely free for 24 hours.",
+            "FREE TRIAL", "See Strong 8K IPTV In Action — No Card, No Catch",
+            "Don't just take our word for it. Try the full Strong 8K experience on your own device and your "
+            "own connection, completely free for 24 hours &mdash; no card, no commitment, no limits.",
             "Your trial includes everything a paid plan does:",
             [
                 "The complete 40,000+ channel list",
@@ -94,8 +94,8 @@ def build_home():
                 "Full access to the VOD library",
                 "Genuine peak-time performance, not a demo server",
             ],
-            "No card details. No commitment. If you like what you see &mdash; and we think you will "
-            "&mdash; upgrading to a full plan takes one message.",
+            "Love it? Upgrading to a full plan takes one WhatsApp message. Not for you? Walk away &mdash; "
+            "no hard feelings, no charges.",
             "Start free trial →", wa("Hi Strong 8K, I'd like to start my free 24-hour trial."),
         ),
         alt=True,
