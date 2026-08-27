@@ -310,6 +310,13 @@ def icon_card(icon_name, title, desc):
     </div>'''
 
 
+def device_card(icon_name, label):
+    return f'''<div class="card icon-card device-card">
+      <div class="icon-box">{icon(icon_name, 22)}</div>
+      <h3>{esc(label)}</h3>
+    </div>'''
+
+
 def feature_grid(items, cols=3):
     cards = "".join(icon_card(i, t, d) for i, t, d in items)
     return f'<div class="grid grid--{cols}">{cards}</div>'

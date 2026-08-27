@@ -126,19 +126,23 @@ def build_home():
 
     # 5. Compatible Devices
     home_devices = [
-        ("tv", "Smart TVs", "Watch IPTV directly on supported Smart TV platforms using a compatible IPTV player."),
-        ("firestick", "Amazon Firestick / Fire TV", "Set up Strong 8K with a compatible IPTV application."),
-        ("tv", "Android TV", "Use supported IPTV players on Android TV devices."),
-        ("mobile", "Android Phones & Tablets", "Watch compatible IPTV content while travelling or away from your main TV."),
-        ("apple", "iPhone & iPad", "Use a compatible IPTV player where supported."),
-        ("box", "IPTV Boxes", "Compatible Android-based IPTV boxes can provide a dedicated viewing setup."),
-        ("laptop", "IPTV Players", "Strong 8K can be configured through supported players using the available connection details."),
+        ("tv", "Smart TVs"),
+        ("firestick", "Amazon Firestick / Fire TV"),
+        ("tv", "Android TV"),
+        ("mobile", "Android Phones & Tablets"),
+        ("apple", "iPhone & iPad"),
+        ("box", "IPTV Boxes"),
+        ("laptop", "IPTV Players"),
     ]
-    device_cards = "".join(icon_card(i, n, s_) for i, n, s_ in home_devices)
+    device_cards = "".join(device_card(i, n) for i, n in home_devices)
     s.append(sec(
         section_head("4. Compatible Devices", "Compatible Devices",
-            "Strong 8K IPTV can be used across a range of compatible devices and IPTV applications.")
-        + f'<div class="grid grid--3">{device_cards}</div>',
+            'Strong 8K IPTV supports a range of popular streaming hardware and player environments, including '
+            'Smart TVs, Firestick, Android TV, mobile devices and IPTV boxes. Our '
+            '<a href="strong-8k-iptv-installation.html">setup guide</a> provides device-specific instructions '
+            'so you can choose the installation method that matches your equipment.',
+            align="left")
+        + f'<div class="grid grid--5">{device_cards}</div>',
     ))
 
     # 6. Why Choose Strong 8K IPTV?

@@ -216,6 +216,17 @@ table {
   line-height: 1.7;
 }
 
+.section-head p a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+}
+
+.section-head p a:hover {
+  color: var(--gold-light);
+}
+
 .grid {
   display: grid;
   gap: 24px;
@@ -233,10 +244,17 @@ table {
   grid-template-columns: repeat(4, 1fr);
 }
 
+.grid--5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
 @media (max-width: 900px) {
   .grid--3,
   .grid--4 {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .grid--5 {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -244,6 +262,15 @@ table {
   .grid--2,
   .grid--3,
   .grid--4 {
+    grid-template-columns: 1fr;
+  }
+  .grid--5 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 420px) {
+  .grid--5 {
     grid-template-columns: 1fr;
   }
 }
@@ -1269,6 +1296,27 @@ table {
   font-size: 0.9rem;
   color: var(--text-dim);
   line-height: 1.65;
+}
+
+.device-card {
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: 28px 18px;
+}
+
+.device-card .icon-box {
+  width: 52px;
+  height: 52px;
+}
+
+.device-card .icon-box svg {
+  width: 24px;
+  height: 24px;
+}
+
+.device-card h3 {
+  font-size: 0.98rem;
 }
 
 /* ---- Pills ---- */
