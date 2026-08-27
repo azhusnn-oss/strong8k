@@ -141,7 +141,7 @@ def build_home():
             'Smart TVs, Firestick, Android TV, mobile devices and IPTV boxes. Our '
             '<a href="strong-8k-iptv-installation.html">setup guide</a> provides device-specific instructions '
             'so you can choose the installation method that matches your equipment.',
-            align="left")
+            )
         + f'<div class="grid grid--5">{device_cards}</div>',
     ))
 
@@ -155,7 +155,7 @@ def build_home():
         ("headset", "Support When You Need It", "Get assistance through WhatsApp and email for setup and subscription questions."),
         ("grid", "Choice Of IPTV Players", "Use a compatible application that suits your preferred device and viewing setup."),
     ]
-    s.append(sec(section_head("5. Why Strong 8K", "Why Choose Strong 8K IPTV?", align="left") + feature_grid(why), alt=True))
+    s.append(sec(section_head("5. Why Strong 8K", "Why Choose Strong 8K IPTV?") + feature_grid(why), alt=True))
 
     # 7. Strong 8K IPTV Features
     features10 = [
@@ -188,8 +188,7 @@ def build_home():
     ]
     s.append(sec(
         section_head("7. Customer Reviews", "What Our Subscribers Say",
-            "Feedback from customers who have contacted us on WhatsApp.",
-            align="left")
+            "Feedback from customers who have contacted us on WhatsApp.")
         + review_grid(reviews),
         alt=True,
     ))
@@ -209,8 +208,7 @@ def build_home():
     # 10. Get in Touch
     s.append(sec(
         section_head("9. Get In Touch", "Need Help Choosing Or Setting Up Strong 8K IPTV?",
-            "Whether you are new to IPTV or already use an IPTV player, our support team can help you get started with Strong 8K.",
-            align="left")
+            "Whether you are new to IPTV or already use an IPTV player, our support team can help you get started with Strong 8K.")
         + f'''<div class="grid grid--2 contact-channel-grid">
       {contact_channel_card("whatsapp", "WhatsApp Support", "Contact us directly on WhatsApp for quick assistance.", wa("Hi Strong 8K, I need some help."), blank=True)}
       {contact_channel_card("mail", "Email Support", "Send your question by email for subscription, setup or general support.", mail())}
