@@ -1317,6 +1317,7 @@ table {
 
 .device-card h3 {
   font-size: 0.98rem;
+  line-height: 1.35;
 }
 
 /* ---- Pills ---- */

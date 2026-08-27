@@ -170,7 +170,8 @@ def build_home():
         ("gauge", "Flexible Plans", "Select a subscription period that matches your viewing requirements."),
         ("headset", "Customer Support", "Contact the support team through WhatsApp or email for assistance."),
     ]
-    s.append(sec(section_head("6. Features", "Strong 8K IPTV Features") + feature_grid(features10, cols=4)))
+    features_cards = "".join(device_card(i, t) for i, t, _ in features10)
+    s.append(sec(section_head("6. Features", "Strong 8K IPTV Features") + f'<div class="grid grid--5">{features_cards}</div>'))
 
     # 8. Strong 8K IPTV Reviews
     s.append(sec(
