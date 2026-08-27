@@ -155,7 +155,7 @@ def build_home():
         ("headset", "Support When You Need It", "Get assistance through WhatsApp and email for setup and subscription questions."),
         ("grid", "Choice Of IPTV Players", "Use a compatible application that suits your preferred device and viewing setup."),
     ]
-    s.append(sec(section_head("5. Why Strong 8K", "Why Choose Strong 8K IPTV?") + feature_grid(why), alt=True))
+    s.append(sec(section_head("5. Why Strong 8K", "Why Choose Strong 8K IPTV?", align="left") + feature_grid(why), alt=True))
 
     # 7. Strong 8K IPTV Features
     features10 = [
