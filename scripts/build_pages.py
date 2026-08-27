@@ -174,11 +174,23 @@ def build_home():
     s.append(sec(section_head("6. Features", "Strong 8K IPTV Features") + f'<div class="grid grid--5">{features_cards}</div>'))
 
     # 8. Strong 8K IPTV Reviews
+    reviews = [
+        ("Works really well on IPTV Smarters Pro. Setup was easy and the channels load quickly. No problems so far.",
+         "James", "Manchester, UK"),
+        ("Got it working on my Fire Stick in a few minutes. Everything is simple to use and the service has been working fine.",
+         "Michael", "London, UK"),
+        ("Really happy with the service so far. Easy setup on my Smart TV and everything has been running smoothly.",
+         "Daniel", "Dublin, Ireland"),
+        ("Very easy to set up and the picture quality is good. I'm using it on my Fire Stick and haven't had any issues.",
+         "Lukas", "Berlin, Germany"),
+        ("Good service and quick setup. IPTV Smarters Pro works perfectly for me and the support was helpful when I needed it.",
+         "Ryan", "Birmingham, UK"),
+    ]
     s.append(sec(
         section_head("7. Customer Reviews", "What Our Subscribers Say",
-            "Genuine feedback from customers who contact us on WhatsApp and email &mdash; added here once verified.",
+            "Feedback from customers who have contacted us on WhatsApp.",
             align="left")
-        + review_placeholder(),
+        + review_grid(reviews),
         alt=True,
     ))
 

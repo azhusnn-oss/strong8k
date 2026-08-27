@@ -531,9 +531,14 @@ def code_box(code):
 
 
 def review_card(quote, name, location):
+    initial = esc(name[:1].upper())
     return f'''<div class="card review-card">
-      <p class="review-quote">&ldquo;{esc(quote)}&rdquo;</p>
-      <p class="review-author"><strong>{esc(name)}</strong>, {esc(location)}</p>
+      <span class="review-quote-mark" aria-hidden="true">&ldquo;</span>
+      <p class="review-quote">{esc(quote)}</p>
+      <div class="review-author-row">
+        <span class="review-avatar">{initial}</span>
+        <p class="review-author"><strong>{esc(name)}</strong><span>{esc(location)}</span></p>
+      </div>
     </div>'''
 
 
