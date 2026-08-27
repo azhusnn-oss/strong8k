@@ -2182,3 +2182,108 @@ table.data-table {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+/* ---- Support lanes (Contact page) ---- */
+.support-lanes {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 940px;
+  margin-inline: auto;
+}
+
+.support-lane {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: 22px;
+  align-items: center;
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  border-radius: 16px;
+  padding: 26px 28px;
+  scroll-margin-top: calc(var(--header-h) + 24px);
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.support-lane:hover {
+  transform: translateX(6px);
+  background: var(--bg-2);
+  border-color: var(--gold-20);
+  border-left-color: var(--gold-light);
+}
+
+.lane-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  background: var(--gold-06);
+}
+
+.lane-body h3 {
+  font-size: 1.08rem;
+  margin-bottom: 6px;
+}
+
+.lane-body p {
+  font-size: 0.92rem;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+
+.lane-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.lane-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: var(--gold-06);
+  border: 1px solid var(--gold-20);
+  border-radius: var(--radius-full);
+  padding: 4px 12px;
+}
+
+.lane-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 190px;
+}
+
+.lane-actions .btn {
+  padding: 11px 20px;
+  font-size: 0.88rem;
+}
+
+@media (max-width: 780px) {
+  .support-lane {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 22px 20px;
+    text-align: center;
+  }
+  .support-lane:hover {
+    transform: none;
+  }
+  .lane-icon {
+    margin-inline: auto;
+  }
+  .lane-tags {
+    justify-content: center;
+  }
+  .lane-actions {
+    min-width: 0;
+  }
+}

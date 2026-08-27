@@ -118,10 +118,10 @@ def footer():
           <h4>Support</h4>
           <ul>
             <li><a href="contact-us.html">Contact Us</a></li>
-            <li><a href="index.html#faq">FAQs</a></li>
-            <li><a href="strong-8k-iptv-installation.html">Setup &amp; Installation</a></li>
-            <li><a href="strong-8k-iptv-installation.html#troubleshooting">Troubleshooting</a></li>
-            <li><a href="{wa("Hi Strong 8K, I'd like to start a trial.")}" target="_blank" rel="noreferrer">Start Free Trial</a></li>
+            <li><a href="contact-us.html#faq">FAQs</a></li>
+            <li><a href="contact-us.html#setup">Setup &amp; Installation</a></li>
+            <li><a href="contact-us.html#troubleshooting">Troubleshooting</a></li>
+            <li><a href="contact-us.html#free-trial">Start Free Trial</a></li>
           </ul>
         </nav>
         <nav class="footer-col" aria-label="Legal">
@@ -148,6 +148,20 @@ def footer():
 def toc_pills(items):
     links = "".join(f'<a href="{href}">{label}</a>' for label, href in items)
     return f'<section class="toc-strip"><div class="container"><nav class="legal-toc" aria-label="On this page">{links}</nav></div></section>'
+
+
+
+def support_lane(lane_id, icon_name, title, desc, tags, actions):
+    tags_html = "".join(f'<span class="lane-tag">{esc(t)}</span>' for t in tags)
+    return f'''<div class="support-lane" id="{lane_id}">
+      <div class="lane-icon">{icon(icon_name, 22)}</div>
+      <div class="lane-body">
+        <h3>{esc(title)}</h3>
+        <p>{desc}</p>
+        <div class="lane-tags">{tags_html}</div>
+      </div>
+      <div class="lane-actions">{"".join(actions)}</div>
+    </div>'''
 
 
 def sec(inner_html, alt=False, tight=False, container="container", id_attr=None):

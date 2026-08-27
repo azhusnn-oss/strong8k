@@ -668,8 +668,9 @@ def build_contact():
          btn("Email Support", mail(), "outline", "mail")],
         stats=CONTACT_STATS,
     ))
-    s.append(toc_pills([("Support Topics", "#topics"), ("Contact & Form", "#contact-form"),
-                        ("Quick Links", "#quick-links"), ("FAQ", "#faq")]))
+    s.append(toc_pills([("Support Topics", "#topics"), ("Setup Help", "#setup"),
+                        ("Troubleshooting", "#troubleshooting"), ("Free Trial", "#free-trial"),
+                        ("Contact & Form", "#contact-form"), ("Quick Links", "#quick-links"), ("FAQ", "#faq")]))
 
     help_cats = [
         ("tv", "IPTV Subscription", "Questions about Strong 8K IPTV plans, pricing, trials or subscription activation."),
@@ -678,6 +679,35 @@ def build_contact():
         ("users", "Reseller Support", "Interested in the reseller panel or managing customer subscriptions already?"),
     ]
     s.append(sec(section_head("Support Topics", "How Can We Help?") + feature_grid(help_cats, cols=4), id_attr="topics"))
+
+    # Direct help lanes: setup, troubleshooting, free trial
+    lanes = (
+        support_lane("setup", "settings", "Setup & Installation Help",
+            "New device or fresh subscription? Tell us what you're setting up and we'll send the exact steps "
+            "&mdash; the right app for your device, Downloader code <strong>1646512</strong> where needed, and "
+            "your login details ready to paste.",
+            ["Your device model", "Order email or reference", "M3U or Xtream preference"],
+            [btn("Get Setup Help", wa("Hi Strong 8K, I need help setting up on my device."), "primary", blank=True),
+             btn("Full Install Guide", "strong-8k-iptv-installation.html", "outline")])
+        + support_lane("troubleshooting", "gauge", "Troubleshooting",
+            "Something not working? Try the quick fixes first: restart your device and router, test a different "
+            "channel, and switch to Ethernet or 5GHz Wi-Fi if you can. Still stuck? Message us with the details "
+            "and we'll dig in.",
+            ["Device & app used", "Channel or feature affected", "Screenshot if possible"],
+            [btn("Message Support", wa("Hi Strong 8K, something isn't working. My device is: "), "primary", blank=True),
+             btn("Common Fixes", "strong-8k-iptv-installation.html#troubleshooting", "outline")])
+        + support_lane("free-trial", "sparkles", "Start Your Free Trial",
+            "Not a customer yet? Test the full Strong 8K service free for 24 hours &mdash; the complete channel "
+            "list, VOD library and real picture quality on your own device. No card, no commitment.",
+            ["24 hours full access", "No card needed", "Ready in minutes"],
+            [btn("Start Free Trial", wa("Hi Strong 8K, I'd like to start my free 24-hour trial."), "gold-light", blank=True)])
+    )
+    s.append(sec(
+        section_head("Direct Help", "Get Help Fast &mdash; Pick Your Lane",
+            "Jump straight to the kind of help you need. Every lane goes to a real person on our support team.")
+        + f'<div class="support-lanes">{lanes}</div>',
+        alt=True,
+    ))
 
     contact_form = f'''<form class="contact-form">
         <div class="grid grid--2">
