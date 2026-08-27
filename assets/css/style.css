@@ -2086,12 +2086,30 @@ table.data-table {
 }
 
 /* ---- Legal page ---- */
+.toc-strip {
+  padding: 0 0 8px;
+}
+
+.toc-strip .legal-toc {
+  margin-bottom: 0;
+}
+
 .legal-toc {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
   margin-bottom: 48px;
+}
+
+@media (max-width: 640px) {
+  .legal-toc {
+    gap: 8px;
+  }
+  .legal-toc a {
+    padding: 7px 14px;
+    font-size: 0.78rem;
+  }
 }
 
 .legal-toc a {

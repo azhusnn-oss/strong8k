@@ -117,6 +117,9 @@ def build_home():
          btn("Start IPTV Trial", wa("Hi Strong 8K, I'd like to start a trial."), "outline", blank=True)],
         stats=HERO_STATS,
     ))
+    s.append(toc_pills([("Free Trial", "#trial"), ("Plans", "#home-plans"), ("What's Included", "#included"),
+                        ("Devices", "#devices"), ("Why Us", "#why"), ("Features", "#features"),
+                        ("Reviews", "#reviews"), ("FAQ", "#faq")]))
 
     # 2. Trial & Special Offer
     s.append(sec(
@@ -137,6 +140,7 @@ def build_home():
             "Start free trial →", wa("Hi Strong 8K, I'd like to start my free 24-hour trial."),
         ),
         alt=True,
+        id_attr="trial",
     ))
 
     # 3. Strong 8K IPTV Subscription Plans
@@ -160,6 +164,7 @@ def build_home():
             note="And <strong>40,000+ more channels</strong> &mdash; sports, entertainment, news, kids, "
                  "international &amp; VOD included in every plan."),
         alt=True,
+        id_attr="included",
     ))
 
     # 5. Compatible Devices
@@ -181,6 +186,7 @@ def build_home():
             'so you can choose the installation method that matches your equipment.',
             )
         + f'<div class="grid grid--5">{device_cards}</div>',
+        id_attr="devices",
     ))
 
     # 6. Why Choose Strong 8K IPTV?
@@ -193,7 +199,7 @@ def build_home():
         ("headset", "Support When You Need It", "Get assistance through WhatsApp and email for setup and subscription questions."),
         ("grid", "Choice Of IPTV Players", "Use a compatible application that suits your preferred device and viewing setup."),
     ]
-    s.append(sec(section_head("5. Why Strong 8K", "Why Choose Strong 8K IPTV?") + feature_grid(why), alt=True))
+    s.append(sec(section_head("5. Why Strong 8K", "Why Choose Strong 8K IPTV?") + feature_grid(why), alt=True, id_attr="why"))
 
     # 7. Strong 8K IPTV Features
     features10 = [
@@ -209,7 +215,7 @@ def build_home():
         ("headset", "Customer Support", "Contact the support team through WhatsApp or email for assistance."),
     ]
     features_cards = "".join(device_card(i, t) for i, t, _ in features10)
-    s.append(sec(section_head("6. Features", "Strong 8K IPTV Features") + f'<div class="grid grid--5">{features_cards}</div>'))
+    s.append(sec(section_head("6. Features", "Strong 8K IPTV Features") + f'<div class="grid grid--5">{features_cards}</div>', id_attr="features"))
 
     # 8. Strong 8K IPTV Reviews
     reviews = [
@@ -229,6 +235,7 @@ def build_home():
             "Feedback from customers who have contacted us on WhatsApp.")
         + review_grid(reviews),
         alt=True,
+        id_attr="reviews",
     ))
 
     # 9. FAQ
@@ -270,6 +277,8 @@ def build_subscription():
         [btn("View Plans", "#plans", "primary"), btn("Start IPTV Trial", wa("Hi Strong 8K, I'd like to start a trial."), "outline", blank=True)],
         stats=SUBSCRIPTION_STATS,
     ))
+    s.append(toc_pills([("Pricing", "#plans"), ("Compare Plans", "#compare"), ("What's Included", "#included"),
+                        ("Live Sports", "#sports"), ("How It Works", "#how-it-works"), ("FAQ", "#faq")]))
 
     s.append(sec(
         section_head("Pricing", "Choose Your Strong 8K IPTV Plan",
@@ -306,6 +315,7 @@ def build_subscription():
         + check_list(included)
         + '<p class="divider-note">Content availability and picture quality can vary by programme, source, device and network connection.</p>',
         container="container container--narrow",
+        id_attr="included",
     ))
 
     s.append(sec(
@@ -313,6 +323,7 @@ def build_subscription():
             "Sports are a major reason many viewers choose an IPTV subscription. Depending on available programming, sports coverage can include:")
         + pill_row(SPORTS),
         alt=True,
+        id_attr="sports",
     ))
 
     recs = [
@@ -335,7 +346,7 @@ def build_subscription():
         ("Set Up Your IPTV Player", "Install a compatible IPTV application on your chosen device and enter your provided connection details."),
         ("Start Watching", "Once your IPTV player is configured, access the live TV, sports and VOD content included with your subscription."),
     ]
-    s.append(sec(section_head("Getting Started", "How Strong 8K IPTV Subscription Works") + steps(steps_list), alt=True, container="container container--tight"))
+    s.append(sec(section_head("Getting Started", "How Strong 8K IPTV Subscription Works") + steps(steps_list), alt=True, container="container container--tight", id_attr="how-it-works"))
 
     pr_cards = [
         ("settings", "Payment", "Strong 8K accepts the payment methods currently displayed during checkout. Available options may change over time."),
@@ -353,7 +364,7 @@ def build_subscription():
         ("Does Strong 8K offer an IPTV trial?", "A Strong 8K IPTV trial may be available depending on the current offer. Contact support to confirm the current trial duration, availability and conditions."),
         ("What is the Strong 8K refund policy?", "Refund eligibility depends on the current refund terms and the circumstances of the purchase. Review the refund policy before completing your order or contact support if you need clarification."),
     ]
-    s.append(sec(section_head("FAQ", "Frequently Asked Questions") + faq_list(faqs), alt=True, container="container container--narrow"))
+    s.append(sec(section_head("FAQ", "Frequently Asked Questions") + faq_list(faqs), alt=True, container="container container--narrow", id_attr="faq"))
 
     s.append(cta_section(
         "Ready to Choose Your Strong 8K IPTV Subscription?",
@@ -376,6 +387,8 @@ def build_app_player():
         [btn("Download Strong 8K App", "#download", "primary", "download"), btn("Installation Guide", "strong-8k-iptv-installation.html", "outline")],
         stats=APP_STATS,
     ))
+    s.append(toc_pills([("Download", "#download"), ("Devices", "#devices"), ("Install Steps", "#steps"),
+                        ("Login Methods", "#login"), ("App Features", "#features"), ("FAQ", "#faq")]))
 
     s.append(sec(
         section_head("8K Pro App", "Download Strong 8K App",
@@ -392,7 +405,7 @@ def build_app_player():
         ("apple", "iPhone & iPad", "Install a compatible IPTV player from the Apple App Store, then configure it with your login or playlist information."),
         ("laptop", "Windows PC", "Use a compatible IPTV application or player that supports your provided connection method."),
     ]
-    s.append(sec(section_head("Choose Your Device", "Set Up Strong 8K On Any Device") + feature_grid(device_guides), alt=True))
+    s.append(sec(section_head("Choose Your Device", "Set Up Strong 8K On Any Device") + feature_grid(device_guides), alt=True, id_attr="devices"))
 
     install_steps = [
         ("Install Downloader", "On compatible Fire TV or Android-based devices, install the Downloader application if required."),
@@ -403,7 +416,7 @@ def build_app_player():
         ("Enter Your Strong 8K Details", "Use the subscription information provided after purchasing your Strong 8K IPTV plan."),
         ("Start Watching", "Once your account or playlist has loaded, browse the available live TV, sports, movies, series and VOD content."),
     ]
-    s.append(sec(section_head("Step By Step", "How to Install the 8K Pro App") + steps(install_steps), container="container container--tight"))
+    s.append(sec(section_head("Step By Step", "How to Install the 8K Pro App") + steps(install_steps), container="container container--tight", id_attr="steps"))
 
     s.append(sec(
         section_head("Login Methods", "Strong 8K Login Methods",
@@ -413,6 +426,7 @@ def build_app_player():
             <div class="card"><div class="icon-box">{icon("wifi", 20)}</div><h3>M3U Playlist</h3>{num_list(["M3U playlist URL", "EPG URL, where applicable"])}<p class="text-small mt-lg">Use the login method supplied with your Strong 8K subscription.</p></div>
           </div>''',
         alt=True,
+        id_attr="login",
     ))
 
     app_features = [
@@ -425,7 +439,7 @@ def build_app_player():
         ("heart", "Favourites", "Save frequently watched channels in supported players."),
         ("gamepad", "TV-Friendly Navigation", "Use supported applications with a compatible remote control."),
     ]
-    s.append(sec(section_head("App Features", "Strong 8K App &amp; IPTV Player Features") + feature_grid(app_features, cols=4)))
+    s.append(sec(section_head("App Features", "Strong 8K App &amp; IPTV Player Features") + feature_grid(app_features, cols=4), id_attr="features"))
 
     problems = [
         ("alert", "The 8K Pro App Will Not Install", "Check that your device supports the application and that you are using the correct installation method."),
@@ -444,7 +458,7 @@ def build_app_player():
         ("Does Strong 8K support M3U?", "Strong 8K can be configured through an M3U-compatible IPTV player when an M3U playlist is provided with the subscription."),
         ("Does Strong 8K support Xtream Codes?", "Compatible IPTV players can use Xtream Codes login details when this connection method is provided with your subscription."),
     ]
-    s.append(sec(section_head("FAQ", "Strong 8K App FAQs") + faq_list(faqs), container="container container--narrow"))
+    s.append(sec(section_head("FAQ", "Strong 8K App FAQs") + faq_list(faqs), container="container container--narrow", id_attr="faq"))
 
     s.append(cta_section(
         "Need Help Installing 8K Pro?",
@@ -467,11 +481,14 @@ def build_installation():
         [btn("Get Setup Help", wa("Hi Strong 8K, I need help with installation."), "primary", blank=True)],
         stats=INSTALL_STATS,
     ))
+    s.append(toc_pills([("Before You Start", "#checklist"), ("Firestick Guide", "#firestick"),
+                        ("Other Devices", "#devices"), ("M3U & Xtream", "#connections"),
+                        ("Troubleshooting", "#troubleshooting"), ("FAQ", "#faq")]))
 
     checklist = ["An active Strong 8K IPTV subscription", "A compatible streaming device", "A stable internet connection",
                  "A compatible IPTV app or player", "Your Strong 8K login or playlist details",
                  "The Downloader app on Firestick or supported Android-based devices"]
-    s.append(sec(section_head("Before You Start", "Before Installing Strong 8K IPTV, Make Sure You Have:") + check_list(checklist), container="container container--tight"))
+    s.append(sec(section_head("Before You Start", "Before Installing Strong 8K IPTV, Make Sure You Have:") + check_list(checklist), container="container container--tight", id_attr="checklist"))
 
     firestick_steps = [
         ("Install Downloader", "From your Firestick home screen, search for Downloader and install the application."),
@@ -487,6 +504,7 @@ def build_installation():
             "Amazon Firestick and Fire TV devices are commonly used for IPTV because they support a wide range of streaming applications.")
         + steps(firestick_steps),
         alt=True, container="container container--tight",
+        id_attr="firestick",
     ))
 
     other_devices = [
@@ -507,7 +525,7 @@ def build_installation():
     dev_cards = "".join(
         f'<div class="card"><h3>{t}</h3>{num_list(items)}</div>' for t, items in other_devices
     )
-    s.append(sec(section_head("Other Devices", "Installation Steps By Device") + f'<div class="grid grid--3">{dev_cards}</div>'))
+    s.append(sec(section_head("Other Devices", "Installation Steps By Device") + f'<div class="grid grid--3">{dev_cards}</div>', id_attr="devices"))
 
     s.append(sec(
         section_head("Connection Methods", "Xtream Codes, M3U &amp; EPG Setup")
@@ -517,6 +535,7 @@ def build_installation():
             <div class="card"><div class="icon-box">{icon("guide", 20)}</div><h3>EPG Setup</h3><p class="text-small">Provides programme names, start times, schedules and channel information. Refresh the EPG or check your entered EPG URL if it is missing.</p></div>
           </div>''',
         alt=True,
+        id_attr="connections",
     ))
 
     troubleshooting = [
@@ -536,7 +555,7 @@ def build_installation():
         ("Can I use an M3U playlist with Strong 8K?", "Yes, where an M3U playlist is provided and your selected IPTV player supports M3U URLs."),
         ("Why is my Strong 8K IPTV buffering?", "Buffering can have several causes, including an unstable internet connection or network congestion. Test your connection, restart your equipment and try Ethernet or 5GHz Wi-Fi where available."),
     ]
-    s.append(sec(section_head("FAQ", "Strong 8K IPTV Installation FAQs") + faq_list(faqs), alt=True, container="container container--narrow"))
+    s.append(sec(section_head("FAQ", "Strong 8K IPTV Installation FAQs") + faq_list(faqs), alt=True, container="container container--narrow", id_attr="faq"))
 
     s.append(cta_section(
         "Need Help Setting Up Strong 8K?",
@@ -558,6 +577,8 @@ def build_reseller():
         [btn("Get Reseller Panel", wa("Hi Strong 8K, I'd like to get the reseller panel."), "gold-light", blank=True)],
         stats=RESELLER_STATS,
     ))
+    s.append(toc_pills([("Packages", "#packages"), ("Credit System", "#credits"), ("Panel Features", "#panel"),
+                        ("White Label", "#white-label"), ("Get Started", "#get-started"), ("FAQ", "#faq")]))
 
     s.append(sec(
         section_head("Reseller Model", "Start Your IPTV Reseller Business",
@@ -571,7 +592,7 @@ def build_reseller():
     )
     s.append(sec(section_head("Reseller Packages", "Strong 8K Reseller Packages",
             "Choose a reseller package based on the number of credits you expect to use.")
-        + f'<div class="reseller-grid">{r_cards}</div>', alt=True))
+        + f'<div class="reseller-grid">{r_cards}</div>', alt=True, id_attr="packages"))
 
     s.append(sec(
         section_head("Credit System", "How Strong 8K Reseller Credits Work",
@@ -584,6 +605,7 @@ def build_reseller():
         ], highlight_col=1)
         + '<p class="divider-note">Example: a reseller with 120 credits could potentially create 120 one-month subscriptions under a one-credit-per-month model — or fewer customers with longer subscription durations.</p>',
         container="container container--narrow",
+        id_attr="credits",
     ))
 
     panel_features = [
@@ -594,7 +616,7 @@ def build_reseller():
         ("gauge", "Customer Status", "Check account and subscription information from your dashboard."),
         ("sparkles", "Trial Accounts", "Create trial accounts for potential customers where enabled."),
     ]
-    s.append(sec(section_head("Inside The Panel", "Strong 8K Reseller Panel Features") + feature_grid(panel_features), alt=True))
+    s.append(sec(section_head("Inside The Panel", "Strong 8K Reseller Panel Features") + feature_grid(panel_features), alt=True, id_attr="panel"))
 
     s.append(sec(
         section_head("White Label", "White Label IPTV Reseller",
@@ -602,6 +624,7 @@ def build_reseller():
             "reseller model can allow you to present the service under your own business identity.")
         + num_list(["Your own business name", "Your own branding", "Your own customer-facing website", "Your own subscription offers", "Your own customer support process"]),
         container="container container--tight",
+        id_attr="white-label",
     ))
 
     become_steps = [
@@ -613,7 +636,7 @@ def build_reseller():
         ("Manage Renewals", "Monitor customer subscriptions and manage renewals when required."),
         ("Grow Your Customer Base", "Choose larger credit packages based on your actual subscription demand."),
     ]
-    s.append(sec(section_head("Getting Started", "How to Become a Strong 8K IPTV Reseller") + steps(become_steps), alt=True, container="container container--tight"))
+    s.append(sec(section_head("Getting Started", "How to Become a Strong 8K IPTV Reseller") + steps(become_steps), alt=True, container="container container--tight", id_attr="get-started"))
 
     faqs = [
         ("What is the Strong 8K IPTV reseller panel?", "The Strong 8K reseller panel is a dashboard used by resellers to manage customer IPTV subscriptions, credits and related account functions."),
@@ -622,7 +645,7 @@ def build_reseller():
         ("Can I create sub-resellers?", "Sub-reseller functionality depends on the reseller account and current Strong 8K reseller terms."),
         ("How do I become a Strong 8K IPTV reseller?", "Choose a reseller credit package, complete the registration process and obtain access to the reseller panel."),
     ]
-    s.append(sec(section_head("FAQ", "Frequently Asked Questions") + faq_list(faqs), container="container container--narrow"))
+    s.append(sec(section_head("FAQ", "Frequently Asked Questions") + faq_list(faqs), container="container container--narrow", id_attr="faq"))
 
     s.append(cta_section(
         "Ready to Start Your IPTV Reseller Business?",
@@ -645,6 +668,8 @@ def build_contact():
          btn("Email Support", mail(), "outline", "mail")],
         stats=CONTACT_STATS,
     ))
+    s.append(toc_pills([("Support Topics", "#topics"), ("Contact & Form", "#contact-form"),
+                        ("Quick Links", "#quick-links"), ("FAQ", "#faq")]))
 
     help_cats = [
         ("tv", "IPTV Subscription", "Questions about Strong 8K IPTV plans, pricing, trials or subscription activation."),
@@ -652,7 +677,7 @@ def build_contact():
         ("headset", "Technical Support", "Trouble with your IPTV player, login, M3U playlist, Xtream Codes or EPG?"),
         ("users", "Reseller Support", "Interested in the reseller panel or managing customer subscriptions already?"),
     ]
-    s.append(sec(section_head("Support Topics", "How Can We Help?") + feature_grid(help_cats, cols=4)))
+    s.append(sec(section_head("Support Topics", "How Can We Help?") + feature_grid(help_cats, cols=4), id_attr="topics"))
 
     contact_form = f'''<form class="contact-form">
         <div class="grid grid--2">
@@ -706,6 +731,7 @@ def build_contact():
           </div>
         </div>''',
         alt=True,
+        id_attr="contact-form",
     ))
 
     quick_links = [
@@ -718,7 +744,7 @@ def build_contact():
         f'<a class="card icon-card" href="{href}"><h3>{t}</h3><p>{d}</p><span class="inline-link">Learn more {icon("arrow-right", 14)}</span></a>'
         for t, d, href in quick_links
     )
-    s.append(sec(section_head("Quick Links", "Looking For Information Instead?") + f'<div class="grid grid--4">{ql_cards}</div>'))
+    s.append(sec(section_head("Quick Links", "Looking For Information Instead?") + f'<div class="grid grid--4">{ql_cards}</div>', id_attr="quick-links"))
 
     faqs = [
         ("How can I contact Strong 8K?", "You can contact Strong 8K through WhatsApp or email. You can also use the contact form for subscription, installation, technical and reseller enquiries."),
@@ -727,7 +753,7 @@ def build_contact():
         ("How can I contact Strong 8K reseller support?", "Resellers can contact support through WhatsApp or email for questions about reseller packages, credits, panel access, customer subscriptions and account-related issues."),
         ("How long does Strong 8K support take to respond?", "Response times can vary depending on the type and volume of enquiries."),
     ]
-    s.append(sec(section_head("FAQ", "Frequently Asked Questions") + faq_list(faqs), alt=True, container="container container--narrow"))
+    s.append(sec(section_head("FAQ", "Frequently Asked Questions") + faq_list(faqs), alt=True, container="container container--narrow", id_attr="faq"))
     return s
 
 

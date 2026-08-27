@@ -144,6 +144,12 @@ def footer():
 
 
 
+
+def toc_pills(items):
+    links = "".join(f'<a href="{href}">{label}</a>' for label, href in items)
+    return f'<section class="toc-strip"><div class="container"><nav class="legal-toc" aria-label="On this page">{links}</nav></div></section>'
+
+
 def sec(inner_html, alt=False, tight=False, container="container", id_attr=None):
     cls = "section"
     if alt:
