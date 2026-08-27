@@ -38,6 +38,48 @@ HERO_STATS = [
     ("24/7", "WhatsApp & Email Support"),
 ]
 
+SUBSCRIPTION_STATS = [
+    ("£14.99", "Plans From"),
+    ("4", "Flexible Durations"),
+    ("67%", "Max Annual Saving"),
+    ("24h", "Free Trial Included"),
+]
+
+APP_STATS = [
+    ("8K Pro", "Official App"),
+    ("1646512", "Downloader Code"),
+    ("M3U · Xtream", "Login Methods"),
+    ("6+", "Device Guides"),
+]
+
+INSTALL_STATS = [
+    ("1646512", "Downloader Code"),
+    ("7+", "Device Guides"),
+    ("M3U · Xtream", "Setup Methods"),
+    ("24/7", "Setup Support"),
+]
+
+RESELLER_STATS = [
+    ("3", "Reseller Packages"),
+    ("120–1,000", "Credit Options"),
+    ("White Label", "Sell Under Your Brand"),
+    ("24/7", "Reseller Support"),
+]
+
+CONTACT_STATS = [
+    ("24/7", "Support Availability"),
+    ("WhatsApp", "Quickest Response"),
+    ("Email", "Detailed Queries"),
+    ("4", "Support Topics"),
+]
+
+LEGAL_STATS = [
+    ("4", "Policies In One Place"),
+    ("DMCA", "Compliant Takedowns"),
+    ("7 Days", "Refund Window"),
+    ("24h", "Try Before You Buy"),
+]
+
 LEAGUES_ROW_1 = [
     "Premier League", "NBA", "UEFA Champions League", "NFL", "FA Cup", "MLB",
     "EFL Championship", "NHL", "Six Nations Rugby", "UFC", "Carabao Cup", "PGA Tour",
@@ -226,7 +268,7 @@ def build_subscription():
         "movies, series and VOD through compatible devices and IPTV players &mdash; with flexible durations from "
         "one month to one year.",
         [btn("View Plans", "#plans", "primary"), btn("Start IPTV Trial", wa("Hi Strong 8K, I'd like to start a trial."), "outline", blank=True)],
-        stats=HERO_STATS,
+        stats=SUBSCRIPTION_STATS,
     ))
 
     s.append(sec(
@@ -332,7 +374,7 @@ def build_app_player():
         "choose the right IPTV player and configure your subscription &mdash; with download options, login methods "
         "and troubleshooting guidance.",
         [btn("Download Strong 8K App", "#download", "primary", "download"), btn("Installation Guide", "strong-8k-iptv-installation.html", "outline")],
-        stats=HERO_STATS,
+        stats=APP_STATS,
     ))
 
     s.append(sec(
@@ -423,7 +465,7 @@ def build_installation():
         "method for your device. This guide covers Firestick, Android TV, Smart TV, mobile devices, IPTV "
         "boxes and Windows, along with M3U and Xtream Codes setup.",
         [btn("Get Setup Help", wa("Hi Strong 8K, I need help with installation."), "primary", blank=True)],
-        stats=HERO_STATS,
+        stats=INSTALL_STATS,
     ))
 
     checklist = ["An active Strong 8K IPTV subscription", "A compatible streaming device", "A stable internet connection",
@@ -514,7 +556,7 @@ def build_reseller():
         "Start your own IPTV reseller business with the Strong 8K reseller panel. Manage customer "
         "subscriptions, use reseller credits and organise activations from one place.",
         [btn("Get Reseller Panel", wa("Hi Strong 8K, I'd like to get the reseller panel."), "gold-light", blank=True)],
-        stats=HERO_STATS,
+        stats=RESELLER_STATS,
     ))
 
     s.append(sec(
@@ -601,7 +643,7 @@ def build_contact():
         "team is here to help via WhatsApp or email.",
         [btn("WhatsApp Support", wa("Hi Strong 8K, I need some help."), "primary", "whatsapp", blank=True),
          btn("Email Support", mail(), "outline", "mail")],
-        stats=HERO_STATS,
+        stats=CONTACT_STATS,
     ))
 
     help_cats = [
@@ -702,7 +744,7 @@ def build_legal():
         "Please read these documents carefully &mdash; by using Strong 8K IPTV you agree to them.",
         [btn("Contact Us", "contact-us.html", "primary"),
          btn("WhatsApp Support", wa("Hi Strong 8K, I have a question about your policies."), "outline", blank=True)],
-        stats=HERO_STATS,
+        stats=LEGAL_STATS,
     ))
 
     toc = """<div class="legal-toc">
