@@ -112,7 +112,7 @@ def build_home():
 
     # 4. What You Get With Strong 8K IPTV
     s.append(sec(
-        section_head("What You Get", "What You Get With Strong 8K IPTV", None)
+        section_head("3. What You Get", "What You Get With Strong 8K IPTV", None)
         + f'''<div style="max-width:760px;margin-inline:auto;display:flex;flex-direction:column;gap:16px">
       <p style="text-align:center">Strong 8K IPTV brings live TV, sports, movies, series and VOD together in one service &mdash;
       including the Premier League, UEFA competitions, boxing, PPV, MLB and NBA, subject to availability, plus
