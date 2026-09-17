@@ -108,8 +108,8 @@ def get_in_touch(title, desc):
     return sec(
         section_head("Get In Touch", title, desc)
         + f'''<div class="grid grid--2 contact-channel-grid">
-      {contact_channel_card("whatsapp", "WhatsApp Support", "Contact us directly on WhatsApp for quick assistance.", wa("Hi Strong 8K, I need some help."), blank=True)}
-      {contact_channel_card("mail", "Email Support", "Send your question by email for subscription, setup or general support.", mail())}
+      {contact_channel_card("whatsapp", "WhatsApp Support", "Contact us directly on WhatsApp for quick assistance.<br><strong>" + WHATSAPP_DISPLAY + "</strong>", wa("Hi Strong 8K, I need some help."), blank=True)}
+      {contact_channel_card("mail", "Email Support", "Send your question by email for subscription, setup or general support.<br><strong>" + SUPPORT_EMAIL + "</strong>", mail())}
     </div>''',
         alt=True,
     )
@@ -267,8 +267,8 @@ def build_home():
         section_head("9. Get In Touch", "Need Help Choosing Or Setting Up Strong 8K IPTV?",
             "Whether you are new to IPTV or already use an IPTV player, our support team can help you get started with Strong 8K.")
         + f'''<div class="grid grid--2 contact-channel-grid">
-      {contact_channel_card("whatsapp", "WhatsApp Support", "Contact us directly on WhatsApp for quick assistance.", wa("Hi Strong 8K, I need some help."), blank=True)}
-      {contact_channel_card("mail", "Email Support", "Send your question by email for subscription, setup or general support.", mail())}
+      {contact_channel_card("whatsapp", "WhatsApp Support", "Contact us directly on WhatsApp for quick assistance.<br><strong>" + WHATSAPP_DISPLAY + "</strong>", wa("Hi Strong 8K, I need some help."), blank=True)}
+      {contact_channel_card("mail", "Email Support", "Send your question by email for subscription, setup or general support.<br><strong>" + SUPPORT_EMAIL + "</strong>", mail())}
     </div>''',
         alt=True,
     ))
@@ -735,7 +735,7 @@ def build_contact():
     contact_methods = f'''<div class="grid grid--2">
         <a class="card icon-card" href="{wa()}" target="_blank" rel="noreferrer">
           <div class="icon-box">{icon("whatsapp", 20)}</div><h3>WhatsApp Support</h3>
-          <p>Convenient for quick questions about subscriptions, activation, installation and general assistance.</p>
+          <p>Convenient for quick questions about subscriptions, activation, installation and general assistance.<br><strong>{WHATSAPP_DISPLAY}</strong></p>
         </a>
         <a class="card icon-card" href="{mail()}">
           <div class="icon-box">{icon("mail", 20)}</div><h3>Email Support</h3>

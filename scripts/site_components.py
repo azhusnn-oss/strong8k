@@ -4,7 +4,8 @@ SITE_NAME = "Strong 8K"
 SITE_FULL = "Strong 8K IPTV"
 DOMAIN = "strong8k.com.co"
 SUPPORT_EMAIL = "support@strong8k.com.co"
-WHATSAPP_NUMBER = "447000000000"  # TODO: replace with the real WhatsApp number
+WHATSAPP_NUMBER = "447463012833"
+WHATSAPP_DISPLAY = "+44 7463 012833"
 DOWNLOADER_CODE = "1646512"
 
 
