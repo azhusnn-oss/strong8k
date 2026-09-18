@@ -297,7 +297,12 @@ def savings_pct(plan, base_monthly):
     return round((1 - price / baseline) * 100)
 
 
-def pricing_showcase(plans, cta_href, compare_href, included, id_attr="plans"):
+def plan_order_link(plan):
+    """Direct WhatsApp order link for a plan, with the plan name and price pre-filled."""
+    return wa(f"Hi Strong 8K, I would like to order the {plan['name']} plan ({plan['price']}).")
+
+
+def pricing_showcase(plans, compare_href, included, id_attr="plans"):
     base_monthly = float(plans[0]["price"].replace("£", ""))
     featured = next((p for p in plans if p.get("featured")), plans[0])
 
@@ -309,7 +314,7 @@ def pricing_showcase(plans, cta_href, compare_href, included, id_attr="plans"):
         popular = '<span class="popular-tag">Most Popular</span>' if is_featured else ""
         cards.append(f'''<button type="button" class="plan-tile{" is-active" if is_featured else ""}"
         data-name="{esc(p['name'])}" data-duration="{esc(p['duration'])}" data-price="{p['price']}"
-        data-monthly="{esc(p['monthly'])}" data-href="{cta_href}">
+        data-monthly="{esc(p['monthly'])}" data-href="{plan_order_link(p)}">
       {popular}
       <span class="plan-tile-name">{esc(p['name'])}</span>
       {save_badge}
@@ -369,7 +374,7 @@ def pricing_showcase(plans, cta_href, compare_href, included, id_attr="plans"):
   <div class="plan-detail">
     <h3 data-role="pd-title">{featured['duration']}</h3>
     <p class="plan-detail-sub" data-role="pd-sub">{esc(featured['name'])} plan &mdash; {featured['price']} ({featured['monthly']})</p>
-    <a class="btn btn-gold-light btn-block" data-role="pd-cta" href="{cta_href}">Get {featured['duration']}</a>
+    <a class="btn btn-gold-light btn-block" data-role="pd-cta" href="{plan_order_link(featured)}" target="_blank" rel="noreferrer">Get {featured['duration']}</a>
     <p class="included-label">What&rsquo;s Included</p>
     <ul class="included-checklist">{included_html}</ul>
   </div>

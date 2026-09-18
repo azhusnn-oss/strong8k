@@ -129,9 +129,19 @@ def build_home():
          btn("Start IPTV Trial", wa("Hi Strong 8K, I'd like to start a trial."), "outline", blank=True)],
         stats=HERO_STATS,
     ))
-    s.append(toc_pills([("Free Trial", "#trial"), ("Plans", "#home-plans"), ("What's Included", "#included"),
+    s.append(toc_pills([("Plans", "#home-plans"), ("Free Trial", "#trial"), ("What's Included", "#included"),
                         ("Devices", "#devices"), ("Why Us", "#why"), ("Features", "#features"),
                         ("Reviews", "#reviews"), ("FAQ", "#faq")]))
+
+    # 1. Strong 8K IPTV Subscription Plans
+    s.append(sec(
+        section_head("1. Subscription Plans", "Strong 8K IPTV Subscription Plans",
+            "Choose a subscription based on how long you want to use the service. Strong 8K IPTV offers "
+            "flexible plans for different viewing needs.")
+        + pricing_showcase(PLANS, "iptv-subscription.html#compare", INCLUDED, id_attr="home-plans")
+        + '<p class="divider-note">Choose a shorter plan if you want flexibility, or select the annual IPTV subscription for longer-term access.</p>',
+        alt=True,
+    ))
 
     # 2. Trial & Special Offer
     s.append(sec(
@@ -151,17 +161,7 @@ def build_home():
             "no hard feelings, no charges.",
             "Start free trial →", wa("Hi Strong 8K, I'd like to start my free 24-hour trial."),
         ),
-        alt=True,
         id_attr="trial",
-    ))
-
-    # 3. Strong 8K IPTV Subscription Plans
-    s.append(sec(
-        section_head("2. Subscription Plans", "Strong 8K IPTV Subscription Plans",
-            "Choose a subscription based on how long you want to use the service. Strong 8K IPTV offers "
-            "flexible plans for different viewing needs.")
-        + pricing_showcase(PLANS, "iptv-subscription.html", "iptv-subscription.html#compare", INCLUDED, id_attr="home-plans")
-        + '<p class="divider-note">Choose a shorter plan if you want flexibility, or select the annual IPTV subscription for longer-term access.</p>'
     ))
 
     # 4. What You Get With Strong 8K IPTV
@@ -295,7 +295,7 @@ def build_subscription():
     s.append(sec(
         section_head("Pricing", "Choose Your Strong 8K IPTV Plan",
             "Every plan provides the core Strong 8K IPTV service — the main difference is the subscription period.")
-        + pricing_showcase(PLANS, "contact-us.html", "#compare", INCLUDED, id_attr="plans"),
+        + pricing_showcase(PLANS, "#compare", INCLUDED, id_attr="plans"),
     ))
 
     s.append(sec(
